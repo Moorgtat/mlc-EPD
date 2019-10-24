@@ -1,8 +1,6 @@
 package com.mlc.portfolio.security.services;
 
 import com.mlc.portfolio.entity.User;
-import com.mlc.portfolio.entity.Role;
-import com.mlc.portfolio.entity.ERole;
 
 import java.util.Collection;
 import java.util.List;
@@ -10,6 +8,7 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
