@@ -7,7 +7,7 @@
       <div class="navbar-nav mr-auto">
         <li class="nav-item">
           <a href="/home" class="nav-link">
-            <font-awesome-icon icon="home" /> Home
+           Home
           </a>
         </li>
         <li class="nav-item" v-if="showAdminBoard">
@@ -16,20 +16,20 @@
         <li class="nav-item" v-if="showModeratorBoard">
           <a href="/mod" class="nav-link">Moderator Board</a>
         </li>
-        <li class="nav-item">
-          <a href="/user" class="nav-link" v-if="currentUser">User</a>
+        <li class="nav-item" v-if="currentUser">
+          <a href="/user" class="nav-link" >User</a>
         </li>
       </div>
 
       <div class="navbar-nav ml-auto" v-if="!currentUser">
         <li class="nav-item">
           <a href="/register" class="nav-link">
-            <font-awesome-icon icon="user-plus" /> Sign Up
+            Sign Up
           </a>
         </li>
         <li class="nav-item">
           <a href="/login" class="nav-link">
-            <font-awesome-icon icon="sign-in-alt" /> Login
+            Login
           </a>
         </li>
       </div>
@@ -37,13 +37,12 @@
       <div class="navbar-nav ml-auto" v-if="currentUser">
         <li class="nav-item">
           <a href="/profile" class="nav-link">
-            <font-awesome-icon icon="user" />
             {{currentUser.username}}
           </a>
         </li>
         <li class="nav-item">
           <a href class="nav-link" @click="logOut">
-            <font-awesome-icon icon="sign-out-alt" /> LogOut
+            LogOut
           </a>
         </li>
       </div>
