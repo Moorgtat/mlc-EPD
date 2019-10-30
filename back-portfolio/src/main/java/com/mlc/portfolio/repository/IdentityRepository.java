@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface IdentityRepository extends JpaRepository<Identity, Long> {
 
+    Identity findFirstById(Integer id);
 }
