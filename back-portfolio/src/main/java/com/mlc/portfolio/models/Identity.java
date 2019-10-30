@@ -22,10 +22,10 @@ public class Identity {
     @Email
     private String mail;
     @NotBlank
-    @Size(max = 20)
+    @Size(max = 40)
     private String lien_git;
     @NotBlank
-    @Size(max = 20)
+    @Size(max = 40)
     private String lien_twitter;
     @NotBlank
     @Size(max = 20)
@@ -37,7 +37,7 @@ public class Identity {
     public Identity() {
     }
 
-    public Identity(@NotBlank @Size(max = 30) String name, @NotBlank @Size(max = 30) String poste, @NotBlank @Size(max = 50) @Email String mail, @NotBlank @Size(max = 20) String lien_git, @NotBlank @Size(max = 20) String lien_twitter, @NotBlank @Size(max = 20) String objectif_titre, @NotBlank @Size(max = 200) String objectif_description) {
+    public Identity(@NotBlank @Size(max = 30) String name, @NotBlank @Size(max = 30) String poste, @NotBlank @Size(max = 50) @Email String mail, @NotBlank @Size(max = 40) String lien_git, @NotBlank @Size(max = 40) String lien_twitter, @NotBlank @Size(max = 20) String objectif_titre, @NotBlank @Size(max = 200) String objectif_description) {
         this.name = name;
         this.poste = poste;
         this.mail = mail;
