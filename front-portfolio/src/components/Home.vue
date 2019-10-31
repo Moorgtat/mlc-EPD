@@ -1,7 +1,7 @@
 <template>
-    <div class="container">
-        <header class="jumbotron">
-            <div>
+    <div id="home">
+        <div class="row">
+        <div class="col-3">
             <h1>{{this.content.identity.name}}</h1>
             <h1>{{this.content.identity.poste}}</h1>
             <h1>{{this.content.identity.mail}}</h1>
@@ -9,23 +9,23 @@
             <h1>{{this.content.identity.lien_twitter}}</h1>
             <h1>{{this.content.identity.objectif_titre}}</h1>
             <h1>{{this.content.identity.objectif_description}}</h1>
-            </div>
-            <div>
+        </div>
+        <div class="col-5">
             <ul v-for="skill in content.skills" :key="skill">
-                <li>{{skill.id}}</li>
                 <li>{{skill.titre}}</li>
                 <li>{{skill.description}}</li>
             </ul>
-            </div>
-            <div>
+         </div>
+
+        <div class="col-3">
                 <ul v-for="projekt in content.projekts" :key="projekt">
-                    <li>{{projekt.id}}</li>
                     <li>{{projekt.titre}}</li>
                     <li>{{projekt.description}}</li>
                     <li>{{projekt.github}}</li>
                 </ul>
-            </div>
-        </header>
+        </div>
+        </div>
+
     </div>
 </template>
 
@@ -53,7 +53,9 @@
 </script>
 
 <style>
-    div{
-        margin-top: 30px;
-    }
+#home{
+    margin-top: 10px;
+    background-color: white;
+    text-align: center;
+}
 </style>

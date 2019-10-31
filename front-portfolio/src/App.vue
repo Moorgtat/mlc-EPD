@@ -1,9 +1,7 @@
 <template>
   <div id="app">
-    <nav class="navbar navbar-expand navbar-dark bg-dark">
-
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
       <a href="/home" class="navbar-brand">Portfolio</a>
-
       <div class="navbar-nav mr-auto">
         <li class="nav-item">
           <a href="/home" class="nav-link">
@@ -17,10 +15,9 @@
           <a href="/mod" class="nav-link">Moderator Board</a>
         </li>
         <li class="nav-item" v-if="currentUser">
-          <a href="/user" class="nav-link" >User</a>
+          <a href="/user" class="nav-link" >Cv</a>
         </li>
       </div>
-
       <div class="navbar-nav ml-auto" v-if="!currentUser">
         <li class="nav-item">
           <a href="/register" class="nav-link">
@@ -33,7 +30,6 @@
           </a>
         </li>
       </div>
-
       <div class="navbar-nav ml-auto" v-if="currentUser">
         <li class="nav-item">
           <a href="/profile" class="nav-link">
@@ -47,8 +43,7 @@
         </li>
       </div>
     </nav>
-
-    <div class="container">
+    <div>
       <router-view />
     </div>
   </div>
@@ -83,3 +78,14 @@
     }
   };
 </script>
+
+<style>
+    #app{
+        margin: 0;
+        padding: 0;
+    }
+   nav{
+       margin: 0;
+       padding: 0;
+   }
+</style>
