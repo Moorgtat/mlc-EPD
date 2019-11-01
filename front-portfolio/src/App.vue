@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-sm navbar-light bg-light">
       <a href="/home" class="navbar-brand">Portfolio</a>
       <div class="navbar-nav mr-auto">
         <li class="nav-item">
@@ -9,7 +9,7 @@
           </a>
         </li>
         <li class="nav-item" v-if="showAdminBoard">
-          <a href="/admin" class="nav-link">Admin Board</a>
+          <a href="/admin" class="nav-link">Admin</a>
         </li>
         <li class="nav-item" v-if="showModeratorBoard">
           <a href="/mod" class="nav-link">Moderator Board</a>
