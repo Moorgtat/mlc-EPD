@@ -1,8 +1,8 @@
 <template>
-    <div class="container">
-        <header class="jumbotron">
+    <div id="admin-board">
+        <div class="col-12 text-center">
             <h1 class="display-4">{{content}}</h1>
-        </header>
+        </div>
     </div>
 </template>
 
@@ -29,6 +29,8 @@
     };
 </script>
 
-<style scoped>
-
+<style>
+#admin-board{
+    margin-top: 10%;
+}
 </style>

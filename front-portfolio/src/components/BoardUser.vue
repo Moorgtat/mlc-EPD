@@ -1,15 +1,11 @@
 <template>
     <div class="container">
-        <header class="jumbotron">
-            <h1 class="display-4">{{content}}</h1>
-        </header>
-        <div>
-            <img src="../static/image_1.jpg" />
-            <p>{{getImage()}}</p>
-            <img :src="getImage()"/>
-            <p>{{link}}</p>
-            <img :src="link" />
-            <img src="../static/image_2.jpg"/>
+        <div id="image-test">
+            <div class="row">
+             <div class="col-12 text-center">
+                 <img :src="content" />
+             </div>
+            </div>
         </div>
     </div>
 </template>
@@ -26,10 +22,6 @@
             }
         },
         methods:{
-          getImage(){
-             let path = "http://localhost:8080/img/image_1.0da253b4.jpg"
-              return path
-          }
         },
         mounted() {
             UserService.getUserBoard().then(
@@ -43,3 +35,14 @@
         }
     }
 </script>
+
+<style>
+    #image-test{
+        margin-top: 10%;
+        margin-bottom: 40px;
+    }
+    img{
+   height: 360px;
+   width: 440px;
+    }
+</style>

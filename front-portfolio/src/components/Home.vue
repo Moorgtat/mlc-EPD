@@ -6,11 +6,11 @@
                 <div class="container">
             <h1 class="display-3">{{this.content.identity.name}}</h1>
                     <p class="lead">{{this.content.identity.poste}}</p>
+                    <h1>{{this.content.identity.presentation}}</h1>
             <h1>{{this.content.identity.mail}}</h1>
-            <h1>{{this.content.identity.lien_git}}</h1>
-            <h1>{{this.content.identity.lien_twitter}}</h1>
-            <h1>{{this.content.identity.objectif_titre}}</h1>
-            <h1>{{this.content.identity.objectif_description}}</h1>
+            <h1>{{this.content.identity.git}}</h1>
+            <h1>{{this.content.identity.twitter}}</h1>
+
                 </div>
             </div>
         </div>

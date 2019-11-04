@@ -8,14 +8,14 @@
            Home
           </a>
         </li>
+        <li class="nav-item" v-if="currentUser">
+          <a href="/user" class="nav-link" >Cv</a>
+        </li>
         <li class="nav-item" v-if="showAdminBoard">
           <a href="/admin" class="nav-link">Admin</a>
         </li>
         <li class="nav-item" v-if="showModeratorBoard">
           <a href="/mod" class="nav-link">Moderator Board</a>
-        </li>
-        <li class="nav-item" v-if="currentUser">
-          <a href="/user" class="nav-link" >Cv</a>
         </li>
       </div>
       <div class="navbar-nav ml-auto" v-if="!currentUser">
