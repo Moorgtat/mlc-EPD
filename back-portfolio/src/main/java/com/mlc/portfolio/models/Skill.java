@@ -14,27 +14,15 @@ public class Skill {
     @Size(max = 30)
     private String titre;
     @NotBlank
-    @Size(max = 200)
+    @Size(max = 500)
     private String description;
-    @Size(max = 40)
-    private String image_1;
-    @Size(max = 40)
-    private String image_2;
-    @Size(max = 40)
-    private String image_3;
-    @Size(max = 40)
-    private String image_4;
 
     public Skill() {
     }
 
-    public Skill(@NotBlank @Size(max = 30) String titre, @NotBlank @Size(max = 200) String description, @Size(max = 40) String image_1, @Size(max = 40) String image_2, @Size(max = 40) String image_3, @Size(max = 40) String image_4) {
+    public Skill(@NotBlank @Size(max = 30) String titre, @NotBlank @Size(max = 500) String description) {
         this.titre = titre;
         this.description = description;
-        this.image_1 = image_1;
-        this.image_2 = image_2;
-        this.image_3 = image_3;
-        this.image_4 = image_4;
     }
 
     public Integer getId() {
@@ -61,35 +49,4 @@ public class Skill {
         this.description = description;
     }
 
-    public String getImage_1() {
-        return image_1;
-    }
-
-    public void setImage_1(String image_1) {
-        this.image_1 = image_1;
-    }
-
-    public String getImage_2() {
-        return image_2;
-    }
-
-    public void setImage_2(String image_2) {
-        this.image_2 = image_2;
-    }
-
-    public String getImage_3() {
-        return image_3;
-    }
-
-    public void setImage_3(String image_3) {
-        this.image_3 = image_3;
-    }
-
-    public String getImage_4() {
-        return image_4;
-    }
-
-    public void setImage_4(String image_4) {
-        this.image_4 = image_4;
-    }
 }

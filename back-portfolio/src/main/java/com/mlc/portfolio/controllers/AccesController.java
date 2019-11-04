@@ -48,7 +48,7 @@ public class AccesController {
 	@GetMapping("/user")
 	@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
 	public String userAccess() {
-		return "../static/image_1.jpg";
+		return "http://localhost:8080/img/image_1.0da253b4.jpg";
 	}
 
 	@GetMapping("/mod")

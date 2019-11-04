@@ -18,33 +18,29 @@ public class Identity {
     @Size(max = 30)
     private String poste;
     @NotBlank
+    @Size(max = 500)
+    private String presentation;
+    @NotBlank
     @Size(max = 50)
     @Email
     private String mail;
     @NotBlank
     @Size(max = 40)
-    private String lien_git;
+    private String git;
     @NotBlank
     @Size(max = 40)
-    private String lien_twitter;
-    @NotBlank
-    @Size(max = 20)
-    private String objectif_titre;
-    @NotBlank
-    @Size(max = 200)
-    private String objectif_description;
+    private String twitter;
 
     public Identity() {
     }
 
-    public Identity(@NotBlank @Size(max = 30) String name, @NotBlank @Size(max = 30) String poste, @NotBlank @Size(max = 50) @Email String mail, @NotBlank @Size(max = 40) String lien_git, @NotBlank @Size(max = 40) String lien_twitter, @NotBlank @Size(max = 20) String objectif_titre, @NotBlank @Size(max = 200) String objectif_description) {
+    public Identity(@NotBlank @Size(max = 30) String name, @NotBlank @Size(max = 30) String poste, @NotBlank @Size(max = 500) String presentation, @NotBlank @Size(max = 50) @Email String mail, @NotBlank @Size(max = 40) String git, @NotBlank @Size(max = 40) String twitter) {
         this.name = name;
         this.poste = poste;
+        this.presentation = presentation;
         this.mail = mail;
-        this.lien_git = lien_git;
-        this.lien_twitter = lien_twitter;
-        this.objectif_titre = objectif_titre;
-        this.objectif_description = objectif_description;
+        this.git = git;
+        this.twitter = twitter;
     }
 
     public Integer getId() {
@@ -71,6 +67,14 @@ public class Identity {
         this.poste = poste;
     }
 
+    public String getPresentation() {
+        return presentation;
+    }
+
+    public void setPresentation(String presentation) {
+        this.presentation = presentation;
+    }
+
     public String getMail() {
         return mail;
     }
@@ -79,35 +83,19 @@ public class Identity {
         this.mail = mail;
     }
 
-    public String getLien_git() {
-        return lien_git;
+    public String getGit() {
+        return git;
     }
 
-    public void setLien_git(String lien_git) {
-        this.lien_git = lien_git;
+    public void setGit(String git) {
+        this.git = git;
     }
 
-    public String getLien_twitter() {
-        return lien_twitter;
+    public String getTwitter() {
+        return twitter;
     }
 
-    public void setLien_twitter(String lien_twitter) {
-        this.lien_twitter = lien_twitter;
-    }
-
-    public String getObjectif_titre() {
-        return objectif_titre;
-    }
-
-    public void setObjectif_titre(String objectif_titre) {
-        this.objectif_titre = objectif_titre;
-    }
-
-    public String getObjectif_description() {
-        return objectif_description;
-    }
-
-    public void setObjectif_description(String objectif_description) {
-        this.objectif_description = objectif_description;
+    public void setTwitter(String twitter) {
+        this.twitter = twitter;
     }
 }

@@ -14,28 +14,19 @@ public class Projekt {
     @Size(max = 30)
     private String titre;
     @NotBlank
-    @Size(max = 200)
+    @Size(max = 500)
     private String description;
     @NotBlank
     @Size(max = 30)
     private String github;
-    @Size(max = 40)
-    private String image_1;
-    @Size(max = 40)
-    private String image_2;
-    @Size(max = 40)
-    private String image_3;
 
     public Projekt() {
     }
 
-    public Projekt(@NotBlank @Size(max = 30) String titre, @NotBlank @Size(max = 200) String description, @NotBlank @Size(max = 30) String github, @Size(max = 40) String image_1, @Size(max = 40) String image_2, @Size(max = 40) String image_3) {
+    public Projekt(@NotBlank @Size(max = 30) String titre, @NotBlank @Size(max = 500) String description, @NotBlank @Size(max = 30) String github) {
         this.titre = titre;
         this.description = description;
         this.github = github;
-        this.image_1 = image_1;
-        this.image_2 = image_2;
-        this.image_3 = image_3;
     }
 
     public Integer getId() {
@@ -68,29 +59,5 @@ public class Projekt {
 
     public void setGithub(String github) {
         this.github = github;
-    }
-
-    public String getImage_1() {
-        return image_1;
-    }
-
-    public void setImage_1(String image_1) {
-        this.image_1 = image_1;
-    }
-
-    public String getImage_2() {
-        return image_2;
-    }
-
-    public void setImage_2(String image_2) {
-        this.image_2 = image_2;
-    }
-
-    public String getImage_3() {
-        return image_3;
-    }
-
-    public void setImage_3(String image_3) {
-        this.image_3 = image_3;
     }
 }
