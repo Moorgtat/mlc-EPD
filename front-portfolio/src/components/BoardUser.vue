@@ -4,6 +4,8 @@
             <div class="row">
              <div class="col-12 text-center">
                  <img :src="content" />
+<!--                 <img src="../static/image_1.jpg" />-->
+<!--                 <img :src='link'/>-->
              </div>
             </div>
         </div>
@@ -18,7 +20,7 @@
         data() {
             return {
                 content: '',
-                link: "http://localhost:8080/img/image_1.0da253b4.jpg"
+                link: require ('../static/image_1.jpg')
             }
         },
         methods:{
@@ -42,7 +44,7 @@
         margin-bottom: 40px;
     }
     img{
-   height: 360px;
-   width: 440px;
+        height: 360px;
+        width: 440px;
     }
 </style>

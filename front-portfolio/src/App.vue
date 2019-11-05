@@ -20,12 +20,12 @@
       </div>
       <div class="navbar-nav ml-auto" v-if="!currentUser">
         <li class="nav-item">
-          <a href="/register" class="nav-link">
-            Sign Up
+          <a class="nav-link" @click="registerModal()">
+            Register
           </a>
         </li>
         <li class="nav-item">
-          <a href="/login" class="nav-link">
+          <a class="nav-link" @click="loginModal()" @mouseover="active = !active" @mouseout="active = !active">
             Login
           </a>
         </li>
@@ -38,33 +38,46 @@
         </li>
         <li class="nav-item">
           <a href class="nav-link" @click="logOut">
-            LogOut
+            Logout
           </a>
         </li>
       </div>
     </nav>
+
+    <div id="infoConnection" class="text-center" v-if="active">
+      Connecte toi pour avoir accès à mon cv!
+    </div>
+
     <div>
       <router-view />
     </div>
   </div>
+
 </template>
 
 <script>
+  import login from '../src/components/Login'
+  import register from '../src/components/Register'
+
   export default {
+    data(){
+      return {
+        active: false
+      }
+    },
     computed: {
       currentUser() {
-        return this.$store.state.auth.user;
+        return this.$store.state.auth.user
       },
       showAdminBoard() {
         if (this.currentUser) {
-          return this.currentUser.roles.includes('ROLE_ADMIN');
+          return this.currentUser.roles.includes('ROLE_ADMIN')
         }
-
         return false;
       },
       showModeratorBoard() {
         if (this.currentUser) {
-          return this.currentUser.roles.includes('ROLE_MODERATOR');
+          return this.currentUser.roles.includes('ROLE_MODERATOR')
         }
 
         return false;
@@ -72,20 +85,56 @@
     },
     methods: {
       logOut() {
-        this.$store.dispatch('auth/logout');
-        this.$router.push('/login');
+        this.$store.dispatch('auth/logout')
+        this.$router.push('/home')
+      },
+     loginModal() {
+        this.$buefy.modal.open({
+          parent: this,
+          component: login,
+          hasModalCard: true
+        })
+      },
+      registerModal() {
+        this.$buefy.modal.open({
+          parent: this,
+          component: register,
+          hasModalCard: true
+        })
       }
     }
-  };
+  }
 </script>
 
 <style>
     #app{
         margin: 0;
         padding: 0;
+      z-index: 1;
     }
    nav{
        margin: 0;
        padding: 0;
    }
+  #infoConnection{
+    font-family: "Calibri Light";
+    position: absolute;
+    margin-left: 80%;
+    padding: 10px;
+    height: 15%;
+    width: 20%;
+    z-index: 2;
+  }
+    @media (min-width: 882px) {
+      #infoConnection{
+        margin-left: 88%;
+        width: 12%;
+      }
+    }
+    @media (min-width: 1222px){
+      #infoConnection{
+        margin-left: 92%;
+        width: 8%;
+      }
+    }
 </style>

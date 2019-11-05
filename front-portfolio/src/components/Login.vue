@@ -20,20 +20,20 @@
                             v-model="user.password"
                     />
                 </div>
-            <button class="btn btn-primary btn-block" type="submit">Login</button>
+            <button class="btn btn-secondary btn-block" type="submit" @click="closeModal()">Login</button>
             </form>
         </div>
     </div>
 </template>
 
 <script>
-    import User from '../models/user';
+    import User from '../models/user'
 
     export default {
         name: 'login',
         computed: {
             loggedIn() {
-                return this.$store.state.auth.status.loggedIn;
+                return this.$store.state.auth.status.loggedIn
             }
         },
         data() {
@@ -45,25 +45,28 @@
         },
         mounted() {
             if (this.loggedIn) {
-                this.$router.push('/profile');
+                this.$router.push('/profile')
             }
         },
         methods: {
+            closeModal(){
+               return this.$emit('close')
+            },
             handleLogin() {
                 if (this.user.username && this.user.password) {
                     this.$store.dispatch('auth/login', this.user).then(
                         () => {
-                            this.$router.push('/profile');
+                            this.$router.push('/profile')
                         },
                         error => {
                             this.loading = false;
-                            this.message = error.message;
+                            this.message = error.message
                         }
-                    );
+                    )
                 }
             }
         }
-    };
+    }
 </script>
 
 <style scoped>
@@ -80,8 +83,6 @@
     .card {
         background-color: #f7f7f7;
         padding: 20px 25px 30px;
-        margin: 0 auto 25px;
-        margin-top: 50px;
         -moz-border-radius: 2px;
         -webkit-border-radius: 2px;
         border-radius: 2px;

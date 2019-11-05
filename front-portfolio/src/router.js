@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './components/Home.vue'
-import Login from './components/Login.vue'
-import Register from './components/Register.vue'
 
 Vue.use(Router)
 
@@ -17,14 +15,6 @@ export const router = new Router({
         {
             path: '/home',
             component: Home
-        },
-        {
-            path: '/login',
-            component: Login
-        },
-        {
-            path: '/register',
-            component: Register
         },
         {
             path: '/profile',
@@ -54,14 +44,14 @@ export const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-    const publicPages = ['/login', '/home','/register'];
-    const authRequired = !publicPages.includes(to.path);
-    const loggedIn = localStorage.getItem('user');
+    const publicPages = ['/home']
+    const authRequired = !publicPages.includes(to.path)
+    const loggedIn = localStorage.getItem('user')
 
     // try to access a restricted page + not logged in
     if (authRequired && !loggedIn) {
-        return next('/home');
+        return next('/home')
     }
 
-    next();
-});
+    next()
+})
