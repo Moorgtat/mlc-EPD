@@ -4,9 +4,11 @@
             <div class="row">
              <div class="col-12 text-center">
                  <img :src="content" />
-<!--                 <img src="../static/image_1.jpg" />-->
-<!--                 <img :src='link'/>-->
+                 <img :src='link'/>
              </div>
+            </div>
+            <div class="text-center">
+            <a href="SPRING Boot_Messaging.pdf" target=_blank>mon cv </a>
             </div>
         </div>
     </div>
@@ -20,7 +22,7 @@
         data() {
             return {
                 content: '',
-                link: require ('../static/image_1.jpg')
+                link: 'image_3.jpg'
             }
         },
         methods:{

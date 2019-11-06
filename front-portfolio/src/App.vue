@@ -1,12 +1,10 @@
 <template>
   <div id="app">
     <nav class="navbar navbar-expand-sm navbar-light bg-light">
-      <a href="/home" class="navbar-brand">Portfolio</a>
+      <a href="/home" class="navbar-brand mb-1 h1"> Portfolio </a>
       <div class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a href="/home" class="nav-link">
-           Home
-          </a>
+          <a href="/home" class="nav-link">Home</a>
         </li>
         <li class="nav-item" v-if="currentUser">
           <a href="/user" class="nav-link" >Cv</a>
@@ -15,31 +13,23 @@
           <a href="/admin" class="nav-link">Admin</a>
         </li>
         <li class="nav-item" v-if="showModeratorBoard">
-          <a href="/mod" class="nav-link">Moderator Board</a>
+          <a href="/mod" class="nav-link">Moderator</a>
         </li>
       </div>
       <div class="navbar-nav ml-auto" v-if="!currentUser">
         <li class="nav-item">
-          <a class="nav-link" @click="registerModal()">
-            Register
-          </a>
+          <a class="nav-link" @click="registerModal()">Register</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" @click="loginModal()" @mouseover="active = !active" @mouseout="active = !active">
-            Login
-          </a>
+          <a class="nav-link" @click="loginModal()" @mouseover="active = true" @mouseout="active = false">Login</a>
         </li>
       </div>
       <div class="navbar-nav ml-auto" v-if="currentUser">
         <li class="nav-item">
-          <a href="/profile" class="nav-link">
-            {{currentUser.username}}
-          </a>
+          <a href="/profile" class="nav-link">{{currentUser.username}}</a>
         </li>
         <li class="nav-item">
-          <a href class="nav-link" @click="logOut">
-            Logout
-          </a>
+          <a href class="nav-link" @click="logOut">Logout</a>
         </li>
       </div>
     </nav>
@@ -56,13 +46,13 @@
 </template>
 
 <script>
-  import login from '../src/components/Login'
-  import register from '../src/components/Register'
+    import login from '../src/components/Login'
+    import register from '../src/components/Register'
 
-  export default {
+    export default {
     data(){
       return {
-        active: false
+        active: ''
       }
     },
     computed: {
@@ -117,7 +107,7 @@
        padding: 0;
    }
   #infoConnection{
-    font-family: "Calibri Light";
+    font-family: "Comic Sans MS";
     position: absolute;
     margin-left: 80%;
     padding: 10px;

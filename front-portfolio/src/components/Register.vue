@@ -15,7 +15,8 @@
                         <div
                                 class="alert-danger"
                                 v-if="submitted && errors.has('username')"
-                        >{{errors.first('username')}}</div>
+                        >{{errors.first('username')}}
+                        </div>
                     </div>
                     <div class="form-group">
                         <label>Email</label>
@@ -26,10 +27,10 @@
                                 v-model="user.email"
                                 v-validate="'required|email|max:50'"
                         />
-                        <div
-                                class="alert-danger"
-                                v-if="submitted && errors.has('email')"
-                        >{{errors.first('email')}}</div>
+                        <div class="alert-danger"
+                             v-if="submitted && errors.has('email')">
+                            {{errors.first('email')}}
+                        </div>
                     </div>
                     <div class="form-group">
                         <label>Password</label>
@@ -40,13 +41,13 @@
                                 v-model="user.password"
                                 v-validate="'required|min:6|max:40'"
                         />
-                        <div
-                                class="alert-danger"
-                                v-if="submitted && errors.has('password')"
-                        >{{errors.first('password')}}</div>
+                        <div class="alert-danger"
+                             v-if="submitted && errors.has('password')">
+                            {{errors.first('password')}}
+                        </div>
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-primary btn-block">Sign Up</button>
+                        <button class="btn btn-secondary btn-block">Sign Up</button>
                     </div>
                 </div>
             </form>
@@ -55,7 +56,9 @@
                     class="alert"
                     :class="successful ? 'alert-success' : 'alert-danger'"
                     v-if="message"
-            >{{message}}</div>
+            >{{message}}
+            </div>
+
         </div>
     </div>
 </template>

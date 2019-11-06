@@ -14,7 +14,7 @@
         data() {
             return {
                 content: ''
-            };
+            }
         },
         mounted() {
             UserService.getAdminBoard().then(
@@ -24,9 +24,9 @@
                 error => {
                     this.content = error.response.data.message;
                 }
-            );
+            )
         }
-    };
+    }
 </script>
 
 <style>
