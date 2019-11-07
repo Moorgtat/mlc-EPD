@@ -4,7 +4,6 @@
             <div class="row">
              <div class="col-12 text-center">
                  <img :src="content" />
-                 <img :src='link'/>
              </div>
             </div>
             <div class="text-center">
@@ -21,8 +20,7 @@
         name: 'user',
         data() {
             return {
-                content: '',
-                link: 'image_3.jpg'
+                content: ''
             }
         },
         methods:{

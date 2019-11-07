@@ -46,10 +46,10 @@
 </template>
 
 <script>
-    import login from '../src/components/Login'
-    import register from '../src/components/Register'
+  import login from '../src/components/Login'
+  import register from '../src/components/Register'
 
-    export default {
+  export default {
     data(){
       return {
         active: ''
@@ -100,7 +100,7 @@
     #app{
         margin: 0;
         padding: 0;
-      z-index: 1;
+        z-index: 1;
     }
    nav{
        margin: 0;

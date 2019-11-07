@@ -1,30 +1,31 @@
 <template>
     <div id="home">
-        <section class="column is-full-screen">
-                <div class="container">
-                    <h1 class="display-4">{{this.content.identity.name}}</h1>
-                    <p class="lead">{{this.content.identity.poste}}</p>
-                </div>
-                <div class="jumbotron">{{this.content.identity.presentation}}</div>
-        </section>
 
-        <section class="column is-full-screen">
-                <div class="container">
-            <ul v-for="skill in content.skills" :key="skill">
-                <li><h3 class="display-4">{{skill.titre}}</h3></li>
-                <li><div class="jumbotron">{{skill.description}}</div></li>
-            </ul>
-                </div>
-        </section>
-
-        <section class="column is-full-screen">
-                <div class="container">
-                <ul v-for="projekt in content.projekts" :key="projekt">
-                    <li><h1 class="display-4">{{projekt.titre}}</h1></li>
-                    <li><div class="jumbotron">{{projekt.description}}</div></li>
+        <article class="scroller">
+            <section id="uno">
+                <h2>Section one</h2>
+                <p>{{this.content.identity.name}}</p>
+                <p>{{this.content.identity.poste}}</p>
+                <p>{{this.content.identity.presentation}}</p>
+                <p>{{this.content.identity.presentation}}</p>
+                <p>{{this.content.identity.presentation}}</p>
+            </section>
+            <section id="deuxio">
+                <h2>Section two</h2>
+                <ul v-for="skill in content.skills" :key="skill">
+                    <li>{{skill.titre}}</li>
+                    <li>{{skill.description}}</li>
                 </ul>
-                </div>
-        </section>
+            </section>
+            <section id="tercio">
+                <h2>Section three</h2>
+                <ul v-for="projekt in content.projekts" :key="projekt">
+                    <li>{{projekt.titre}}</li>
+                    <li>{{projekt.description}}</li>
+                </ul>
+            </section>
+        </article>
+
     </div>
 </template>
 
@@ -51,13 +52,27 @@
     }
 </script>
 
-<style scoped>
-    #home{
-    margin: 0px;
-    background-color: white;
-    text-align: center;
+<style>
+    .scroller {
+        height: 100vh;
+        overflow-y: scroll;
+        scroll-snap-stop: always;
+        scroll-snap-type: y mandatory;
     }
-    .jumbotron{
-    background-color: white;
+    .scroller section {
+        scroll-snap-align: center;
     }
+    #uno{
+        height: 100vh;
+        background-color: darkseagreen;
+    }
+    #deuxio{
+        height: 100vh;
+        background-color: #2f2f2f;
+    }
+    #tercio{
+        height: 100vh;
+        background-color: darkkhaki;
+    }
+
 </style>

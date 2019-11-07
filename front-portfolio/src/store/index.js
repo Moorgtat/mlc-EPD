@@ -8,5 +8,11 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     modules: {
         auth
+    },
+    state: {
+    },
+    mutations: {
+    },
+    actions: {
     }
 })
