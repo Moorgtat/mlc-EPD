@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <nav class="navbar navbar-expand-sm navbar-light bg-light">
-      <a href="/home" class="navbar-brand mb-1 h1"> Portfolio </a>
+    <nav class="navbar navbar-expand-sm navbar-light">
       <div class="navbar-nav mr-auto">
+
         <li class="nav-item">
-          <a href="/home" class="nav-link">Home</a>
+          <a href="/home" class="navbar-brand mb-auto h1">Home</a>
         </li>
         <li class="nav-item" v-if="currentUser">
           <a href="/user" class="nav-link" >Cv</a>
@@ -21,7 +21,7 @@
           <a class="nav-link" @click="registerModal()">Register</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" @click="loginModal()" @mouseover="active = true" @mouseout="active = false">Login</a>
+          <a class="nav-link" @click="loginModal()">Login</a>
         </li>
       </div>
       <div class="navbar-nav ml-auto" v-if="currentUser">
@@ -33,28 +33,17 @@
         </li>
       </div>
     </nav>
-
-    <div id="infoConnection" class="text-center" v-if="active">
-      Connecte toi pour avoir accès à mon cv!
-    </div>
-
     <div>
       <router-view />
     </div>
   </div>
-
 </template>
 
 <script>
-  import login from '../src/components/Login'
-  import register from '../src/components/Register'
+    import login from '../src/components/Login'
+    import register from '../src/components/Register'
 
-  export default {
-    data(){
-      return {
-        active: ''
-      }
-    },
+    export default {
     computed: {
       currentUser() {
         return this.$store.state.auth.user
@@ -97,34 +86,8 @@
 </script>
 
 <style>
-    #app{
-        margin: 0;
-        padding: 0;
-        z-index: 1;
+    .navbar-expand-sm {
+         background-color: transparent;
     }
-   nav{
-       margin: 0;
-       padding: 0;
-   }
-  #infoConnection{
-    font-family: "Comic Sans MS";
-    position: absolute;
-    margin-left: 80%;
-    padding: 10px;
-    height: 15%;
-    width: 20%;
-    z-index: 2;
-  }
-    @media (min-width: 882px) {
-      #infoConnection{
-        margin-left: 88%;
-        width: 12%;
-      }
-    }
-    @media (min-width: 1222px){
-      #infoConnection{
-        margin-left: 92%;
-        width: 8%;
-      }
-    }
+
 </style>

@@ -1,31 +1,29 @@
 <template>
     <div id="home">
-
         <article class="scroller">
-            <section id="uno">
-                <h2>Section one</h2>
-                <p>{{this.content.identity.name}}</p>
-                <p>{{this.content.identity.poste}}</p>
-                <p>{{this.content.identity.presentation}}</p>
+            <section class="text-center" id="animation_section">
+                    <img id="anim" src="../../public/image_1.jpg">
+            </section>
+            <section class="text-center" id="intro_section">
+                <h1 class="display-4"> INTRO </h1>
                 <p>{{this.content.identity.presentation}}</p>
                 <p>{{this.content.identity.presentation}}</p>
             </section>
-            <section id="deuxio">
-                <h2>Section two</h2>
+            <section class="text-center" id="skills_section">
+                <h1 class="display-4"> Skills </h1>
                 <ul v-for="skill in content.skills" :key="skill">
                     <li>{{skill.titre}}</li>
                     <li>{{skill.description}}</li>
                 </ul>
             </section>
-            <section id="tercio">
-                <h2>Section three</h2>
+            <section class="text-center" id="projekt_section">
+                <h1 class="display-4"> Projekt </h1>
                 <ul v-for="projekt in content.projekts" :key="projekt">
                     <li>{{projekt.titre}}</li>
                     <li>{{projekt.description}}</li>
                 </ul>
             </section>
         </article>
-
     </div>
 </template>
 
@@ -54,6 +52,7 @@
 
 <style>
     .scroller {
+        margin: 0;
         height: 100vh;
         overflow-y: scroll;
         scroll-snap-stop: always;
@@ -62,17 +61,27 @@
     .scroller section {
         scroll-snap-align: center;
     }
-    #uno{
+    #animation_section{
+        padding: 10%;
         height: 100vh;
-        background-color: darkseagreen;
+        background-color: white;
     }
-    #deuxio{
+    #anim{
+        height: 400px;
+    }
+    #intro_section{
+        padding: 10%;
         height: 100vh;
-        background-color: #2f2f2f;
+        background-color: white;
     }
-    #tercio{
+    #skills_section{
+        padding: 10%;
         height: 100vh;
-        background-color: darkkhaki;
+        background-color: white;
     }
-
+    #projekt_section{
+        padding: 10%;
+        height: 100vh;
+        background-color: white;
+    }
 </style>

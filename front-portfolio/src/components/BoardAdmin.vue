@@ -1,18 +1,8 @@
 <template>
     <div id="admin-board">
 
-        <div id="titreBoard" class="col-12 text-center">
+        <div id="titre_adminboard" class="col-12 text-center">
             <h1 class="display-4">{{content}}</h1>
-        </div>
-
-        <div id="skillsBoard">
-            <div class="is-3">
-            test vuex
-            </div>
-
-            <div>
-            test vuex
-            </div>
         </div>
 
     </div>
@@ -43,9 +33,9 @@
 
 <style>
 #admin-board{
-    margin-top: 5%;
+    margin-top: 10%;
 }
-#titreBoard{
+#titre_adminboard{
     margin-bottom: 60px;
 }
 </style>
