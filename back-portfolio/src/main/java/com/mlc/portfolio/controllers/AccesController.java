@@ -62,4 +62,12 @@ public class AccesController {
 	public String adminAccess() {
 		return "Admin Board.";
 	}
+
+	//Liste Skill + patch skill + post Skill
+	@GetMapping("/getSkills")
+	@PreAuthorize("hasRole('ADMIN')")
+	public ResponseEntity<?> getSkills() {
+		List <Skill> skills = skillRepository.findAll();
+		return new ResponseEntity<List<Skill>>(skills, HttpStatus.OK);
+	}
 }
