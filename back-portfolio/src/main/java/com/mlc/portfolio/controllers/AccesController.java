@@ -10,10 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -38,11 +35,11 @@ public class AccesController {
 		Identity identity = identityRepository.findFirstById(1);
 		List <Projekt> projekts = projektRepository.findAll();
 		List <Skill> skills = skillRepository.findAll();
-		Map<String, Object> result = new HashMap<String,Object>();
+		Map<String, Object> result = new HashMap<>();
 		result.put("identity", identity);
 		result.put ("projekts", projekts);
 		result.put ("skills", skills);
-		return new ResponseEntity<Map<String,Object>>(result, HttpStatus.OK);
+		return new ResponseEntity<>(result, HttpStatus.OK);
 	}
 	
 	@GetMapping("/user")
@@ -63,11 +60,43 @@ public class AccesController {
 		return "Admin Board.";
 	}
 
-	//Liste Skill + patch skill + post Skill
+	//Methodes Skill
 	@GetMapping("/getSkills")
 	@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<?> getSkills() {
 		List <Skill> skills = skillRepository.findAll();
-		return new ResponseEntity<List<Skill>>(skills, HttpStatus.OK);
+		return new ResponseEntity<>(skills, HttpStatus.OK);
 	}
+
+	@PostMapping("/newSkill")
+    public ResponseEntity<?> postSkill(@RequestParam String Titre,
+                                      @RequestParam String Description){
+	    Skill newSkill = new Skill();
+	    newSkill.setTitre(Titre);
+	    newSkill.setDescription(Description);
+	    skillRepository.save(newSkill);
+	    return new ResponseEntity<>(newSkill, HttpStatus.OK);
+    }
+
+	@PutMapping("/putSkill")
+    public ResponseEntity<?> updateSkill(@RequestParam int id,
+                                         @RequestParam String Titre,
+                                         @RequestParam String Description) {
+        Skill updateSkill = skillRepository.findById(id);
+        if (updateSkill != null) {
+           updateSkill.setTitre(Titre);
+            updateSkill.setDescription(Description);
+            skillRepository.save(updateSkill);
+        }
+        return new ResponseEntity<>(updateSkill, HttpStatus.OK);
+    }
+
+    @GetMapping("/deleteSkill")
+    public ResponseEntity<?> deleteSkill(@RequestParam int id) {
+        Skill deleteSkill = skillRepository.findById(id);
+        if (deleteSkill != null) {
+            skillRepository.delete(deleteSkill);
+        }
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }
