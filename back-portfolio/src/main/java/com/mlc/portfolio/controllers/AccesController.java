@@ -60,9 +60,35 @@ public class AccesController {
 		return "Admin Board.";
 	}
 
-	//Methodes Skill
+	//Methode Identité
+	@GetMapping("/getIdentity")
+	public ResponseEntity<?> getIdentity() {
+		Identity identity = identityRepository.findFirstById(1);
+		return new ResponseEntity<>(identity, HttpStatus.OK);
+	}
+
+	@PutMapping("/putIdentity")
+	public ResponseEntity<?> updateIdentity( @RequestParam String name,
+										     @RequestParam String poste,
+											 @RequestParam String presentation,
+											 @RequestParam String mail,
+											 @RequestParam String git,
+											 @RequestParam String twitter) {
+		Identity updateIdentity = identityRepository.findFirstById(1);
+		if (updateIdentity != null) {
+			updateIdentity.setName(name);
+			updateIdentity.setPoste(poste);
+			updateIdentity.setPresentation(presentation);
+			updateIdentity.setMail(mail);
+			updateIdentity.setGit(git);
+			updateIdentity.setTwitter(twitter);
+			identityRepository.save(updateIdentity);
+		}
+		return new ResponseEntity<>(updateIdentity, HttpStatus.OK);
+	}
+
+	//Methodes Compétences
 	@GetMapping("/getSkills")
-	@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<?> getSkills() {
 		List <Skill> skills = skillRepository.findAll();
 		return new ResponseEntity<>(skills, HttpStatus.OK);
