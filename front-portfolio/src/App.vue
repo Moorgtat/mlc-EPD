@@ -2,18 +2,14 @@
   <div id="app">
     <nav class="navbar navbar-expand-sm navbar-light">
       <div class="navbar-nav mr-auto">
-
         <li class="nav-item">
-          <a href="/home" class="navbar-brand mb-auto h1">Home</a>
+          <a href="/home" class="navbar-brand mb-auto h1">Portfolio</a>
         </li>
         <li class="nav-item" v-if="currentUser">
           <a href="/user" class="nav-link" >Cv</a>
         </li>
         <li class="nav-item" v-if="showAdminBoard">
           <a href="/admin" class="nav-link">Admin</a>
-        </li>
-        <li class="nav-item" v-if="showModeratorBoard">
-          <a href="/mod" class="nav-link">Moderator</a>
         </li>
       </div>
       <div class="navbar-nav ml-auto" v-if="!currentUser">

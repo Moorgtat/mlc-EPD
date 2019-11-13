@@ -2,7 +2,7 @@
     <div id="home">
         <article class="scroller">
             <section class="text-center" id="animation_section">
-                    <img id="anim" src="../../public/image_1.jpg">
+                    <img id="anim" alt="animation" src="../../public/image_1.jpg">
             </section>
             <section class="text-center" id="intro_section">
                 <h1 class="display-4"> INTRO </h1>
@@ -67,6 +67,8 @@
         background-color: white;
     }
     #anim{
+        margin-top: 5%;
+        width: 548px;
         height: 400px;
     }
     #intro_section{
