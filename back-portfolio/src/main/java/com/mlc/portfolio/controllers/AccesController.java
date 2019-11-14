@@ -125,4 +125,47 @@ public class AccesController {
         }
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    // Méthodes Projekt
+    @GetMapping("/getProjekts")
+    public ResponseEntity<?> getProjekts(){
+	    List <Projekt> projekts = projektRepository.findAll();
+	    return new ResponseEntity<>(projekts, HttpStatus.OK);
+    }
+
+    @PostMapping("/newProjekt")
+    public ResponseEntity<?> postProjekt(@RequestParam String titre,
+                                         @RequestParam String desription,
+                                         @RequestParam String github) {
+	    Projekt newProjekt = new Projekt();
+	    newProjekt.setTitre(titre);
+	    newProjekt.setDescription(desription);
+	    newProjekt.setGithub(github);
+	    projektRepository.save(newProjekt);
+	    return new ResponseEntity<>(newProjekt, HttpStatus.OK);
+    }
+
+    @PutMapping("/putProjekt")
+    public  ResponseEntity<?> updateProjekt(@RequestParam int id,
+                                            @RequestParam String titre,
+                                            @RequestParam String description,
+                                            @RequestParam String github) {
+	    Projekt updateProjekt = projektRepository.findById(id);
+        if (updateProjekt != null) {
+            updateProjekt.setTitre(titre);
+            updateProjekt.setDescription(description);
+            updateProjekt.setGithub(github);
+            projektRepository.save(updateProjekt);
+        }
+        return new ResponseEntity<>(updateProjekt, HttpStatus.OK);
+    }
+
+    @GetMapping("/deleteProjekt")
+    public ResponseEntity<?> deleteProjekt(@RequestParam int id) {
+        Projekt deleteProjekt = projektRepository.findById(id);
+        if (deleteProjekt != null) {
+            projektRepository.delete(deleteProjekt);
+        }
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }
