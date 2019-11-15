@@ -135,11 +135,11 @@ public class AccesController {
 
     @PostMapping("/newProjekt")
     public ResponseEntity<?> postProjekt(@RequestParam String titre,
-                                         @RequestParam String desription,
+                                         @RequestParam String description,
                                          @RequestParam String github) {
 	    Projekt newProjekt = new Projekt();
 	    newProjekt.setTitre(titre);
-	    newProjekt.setDescription(desription);
+	    newProjekt.setDescription(description);
 	    newProjekt.setGithub(github);
 	    projektRepository.save(newProjekt);
 	    return new ResponseEntity<>(newProjekt, HttpStatus.OK);
