@@ -1,26 +1,31 @@
 import axios from 'axios'
 
 const state = {
-    identity: {}
+    identities: []
 };
 const getters = {
-    myIdentity: (state) => state.identity
+    myIdentity: (state) => state.identities
 };
 const actions = {
     async fetchIdentity ({ commit }) {
         const response = await axios.get('http://localhost:8082/api/acces/getIdentity');
         commit('setIdentity', response.data);
     },
-    async updateIdentity({ commit }, updIdentity){
-        const response = await axios.put('http://localhost:8082/api/acces/putIdentity?id=' + updIdentity.id +
-            '&Name=' + updIdentity.name + '&Poste=' + updIdentity.poste + '&Presentation=' + updIdentity.presentation +
-            '&Mail=' + updIdentity.mail + '&Git=' + updIdentity.git + '&Twitter=' + updIdentity.twitter);
+    async updtIdentity({ commit }, updidentity){
+        const response = await axios.put('http://localhost:8082/api/acces/putIdentity?id=' + updidentity.id +
+            '&name=' + updidentity.name + '&poste=' + updidentity.poste + '&presentation=' + updidentity.presentation +
+            '&mail=' + updidentity.mail + '&git=' + updidentity.git + '&twitter=' + updidentity.twitter);
         commit('changeIdentity', response.data )
     }
 };
 const mutations = {
-    setIdentity: (state, identity) => (state.identity = identity),
-    changeIdentity: (state, updIdentity) => (state.identity = updIdentity)
+    setIdentity: (state, identities) => (state.identities = identities),
+    changeIdentity: (state, updidentity) => {
+        const index = state.identities.findIndex(identity => identity.id === updidentity.id);
+        if(index !== -1) {
+            state.identities.splice(0, 1, updidentity)
+        }
+    }
 };
 
 export default {

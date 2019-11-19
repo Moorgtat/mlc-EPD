@@ -31,7 +31,7 @@ const mutations = {
     changeSkill: (state, updskill) => {
         const index = state.skills.findIndex(skill => skill.id === updskill.id);
         if(index !== -1) {
-            state.skills.splice(2, 1, updskill)
+            state.skills.splice(0, 1, updskill)
         }
     }
 };

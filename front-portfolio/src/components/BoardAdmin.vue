@@ -3,7 +3,7 @@
         <article class="scroller">
             <section>
                 <div id="menu" class="text-center">
-                    <b-button id="identity_button" @click="afficheur = 'IdentityBoard'"> Mon identité</b-button>
+                    <b-button id="identity_button" @click="afficheur = 'IdentityBoard', getIdentity()"> Mon identité</b-button>
                     <b-button id="skills_button" @click="afficheur = 'SkillBoard', getSkills()"> Mes compétences</b-button>
                     <b-button id="projekts_button" @click="afficheur = 'ProjektBoard'"> Mes Projets</b-button>
                 </div>
@@ -16,16 +16,49 @@
 
                 <div id="identityboard" class="col-12 text-center" v-if="afficheur === 'IdentityBoard'">
                     <h1 class="display-4">IdentityBoard</h1>
+                    <div v-for="identity in myIdentity" :key="identity.id">
+                      <form>
+                          <div>
+                          <label>Nom:</label>
+                          <input v-model="identity.name" :placeholder="identity.name"/>
+                          </div>
+                          <div>
+                          <label>Poste:</label>
+                          <input v-model="identity.poste" :placeholder="identity.poste"/>
+                          </div>
+                          <div>
+                          <label>Presentation:</label>
+                          <input v-model="identity.presentation" :placeholder="identity.presentation"/>
+                          </div>
+                          <div>
+                          <label>Mail:</label>
+                          <input v-model="identity.mail" :placeholder="identity.mail"/>
+                          </div>
+                          <div>
+                          <label>Github:</label>
+                          <input v-model="identity.git" :placeholder="identity.git"/>
+                          </div>
+                          <div>
+                          <label>Twitter:</label>
+                          <input v-model="identity.twitter" :placeholder="identity.twitter"/>
+                          </div>
+                          <div>
+                              <b-button type="submit" class="is-dark" @click.prevent="updtIdentity(identity)">
+                                  Modifier
+                              </b-button>
+                          </div>
+                      </form>
+                    </div>
                 </div>
 
                 <div id="skillboard" class="col-12 text-center" v-if="afficheur === 'SkillBoard'">
                     <h1 class="display-4">SkillBoard</h1>
 
                     <div class="addSkill">
-                        <form @submit="skillAdd">
+                        <form>
                             <input type="text" v-model="skill.titre"/>
                             <input type="text" v-model="skill.description"/>
-                            <button class="btn-secondary" type="submit"> AddSkill</button>
+                            <b-button type="submit" class="is-dark" @click.prevent="addSkill(skill)" > AddSkill </b-button>
                         </form>
                         <div id="les-skills">
                             <div v-for="skill in allSkills" :key="skill.id">
@@ -71,6 +104,16 @@
         data() {
             return {
                 afficheur: 'AdminBoard',
+                identities: [],
+                identity: {
+                    id: '',
+                    name: '',
+                    poste: '',
+                    presentation: '',
+                    mail: '',
+                    git: '',
+                    twitter: ''
+                },
                 skills: [],
                 skill: {
                     id: '',
@@ -85,16 +128,19 @@
             ...mapActions(['addSkill']),
             ...mapActions(['deleteSkill']),
             ...mapActions(['updtSkill']),
-            skillAdd(e) {
-                e.preventDefault();
-                this.addSkill(this.skill);
-                this.skill = {}
-            },
-            getSkills(){
+            ...mapActions(['fetchIdentity']),
+            ...mapActions(['updtIdentity']),
+            getSkills() {
                 this.fetchSkills();
+            },
+            getIdentity() {
+                this.fetchIdentity();
             }
         },
-        computed: mapGetters(['allSkills']),
+        computed: {
+        ...mapGetters(['allSkills']),
+        ...mapGetters(['myIdentity'])
+    },
         mounted() {
             UserService.getAdminBoard().then(
                 response => {
