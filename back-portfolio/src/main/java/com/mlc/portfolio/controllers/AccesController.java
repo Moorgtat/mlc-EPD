@@ -63,8 +63,8 @@ public class AccesController {
 	//Methode Identité
 	@GetMapping("/getIdentity")
 	public ResponseEntity<?> getIdentity() {
-		Identity identity = identityRepository.findFirstById(1);
-		return new ResponseEntity<>(identity, HttpStatus.OK);
+		List <Identity> identities = identityRepository.findAll();
+		return new ResponseEntity<>(identities, HttpStatus.OK);
 	}
 
 	@PutMapping("/putIdentity")
