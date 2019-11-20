@@ -5,7 +5,7 @@
                 <div id="menu" class="text-center">
                     <b-button id="identity_button" @click="afficheur = 'IdentityBoard', getIdentity()"> Mon identité</b-button>
                     <b-button id="skills_button" @click="afficheur = 'SkillBoard', getSkills()"> Mes compétences</b-button>
-                    <b-button id="projekts_button" @click="afficheur = 'ProjektBoard'"> Mes Projets</b-button>
+                    <b-button id="projekts_button" @click="afficheur = 'ProjektBoard', getProjekts()"> Mes Projets</b-button>
                 </div>
             </section>
             <section>
@@ -53,13 +53,13 @@
 
                 <div id="skillboard" class="col-12 text-center" v-if="afficheur === 'SkillBoard'">
                     <h1 class="display-4">SkillBoard</h1>
-
                     <div class="addSkill">
                         <form>
-                            <input type="text" v-model="skill.titre"/>
-                            <input type="text" v-model="skill.description"/>
+                            <input type="text" v-model="skill.titre" placeholder="titre"/>
+                            <input type="text" v-model="skill.description" placeholder="description"/>
                             <b-button type="submit" class="is-dark" @click.prevent="addSkill(skill)" > AddSkill </b-button>
                         </form>
+                    </div>
                         <div id="les-skills">
                             <div v-for="skill in allSkills" :key="skill.id">
                                 <div class="container" id="skill-container">
@@ -84,11 +84,47 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
                 </div>
 
                 <div id="projektboard" class="col-12 text-center" v-if="afficheur === 'ProjektBoard'">
                     <h1 class="display-4">ProjektBoard</h1>
+                    <div class="addProjekt">
+                        <form>
+                            <input type="text" v-model="projekt.titre" placeholder="titre"/>
+                            <input type="text" v-model="projekt.description" placeholder="description"/>
+                            <input type="text" v-model="projekt.github" placeholder="github"/>
+                            <b-button type="submit" class="is-dark" @click.prevent="addProjekt(projekt)" > AddProjekt </b-button>
+                        </form>
+                    </div>
+                    <div id="les-projekts">
+                        <div v-for="projekt in allProjekts" :key="projekt.id">
+                            <div class="container" id="projekt-container">
+                                <form>
+                                    <div>
+                                        <label>Titre:</label>
+                                        <input v-model="projekt.titre" :placeholder="projekt.titre"/>
+                                    </div>
+                                    <div>
+                                    <label>Description:</label>
+                                    <input v-model="projekt.description" :placeholder="projekt.description"/>
+                                    </div>
+                                    <div>
+                                        <label>Github:</label>
+                                        <input v-model="projekt.github" :placeholder="projekt.github"/>
+                                    </div>
+                                    <div>
+                                        <b-button type="submit" class="is-dark" @click.prevent="updtProjekt(projekt)">
+                                            Modifier
+                                        </b-button>
+                                        <b-button class="is-dark" @click="deleteProjekt(projekt.id)">
+                                            Supprimer
+                                        </b-button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </section>
         </article>
@@ -120,6 +156,13 @@
                     titre: '',
                     description: ''
                 },
+                projekts: [],
+                projekt: {
+                  id: '',
+                  titre: '',
+                  description: '',
+                  github: ''
+                },
                 content: ''
             }
         },
@@ -128,6 +171,10 @@
             ...mapActions(['addSkill']),
             ...mapActions(['deleteSkill']),
             ...mapActions(['updtSkill']),
+            ...mapActions(['fetchProjekts']),
+            ...mapActions(['addProjekt']),
+            ...mapActions(['deleteProjekt']),
+            ...mapActions(['updtProjekt']),
             ...mapActions(['fetchIdentity']),
             ...mapActions(['updtIdentity']),
             getSkills() {
@@ -135,11 +182,15 @@
             },
             getIdentity() {
                 this.fetchIdentity();
+            },
+            getProjekts(){
+                this.fetchProjekts();
             }
         },
         computed: {
         ...mapGetters(['allSkills']),
-        ...mapGetters(['myIdentity'])
+        ...mapGetters(['myIdentity']),
+        ...mapGetters(['allProjekts'])
     },
         mounted() {
             UserService.getAdminBoard().then(

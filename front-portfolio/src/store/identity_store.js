@@ -23,7 +23,7 @@ const mutations = {
     changeIdentity: (state, updidentity) => {
         const index = state.identities.findIndex(identity => identity.id === updidentity.id);
         if(index !== -1) {
-            state.identities.splice(0, 1, updidentity)
+            state.identities.splice(index, 1, updidentity)
         }
     }
 };

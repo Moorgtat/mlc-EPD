@@ -2,7 +2,7 @@
     <div class="col-md-12">
         <div class="card card-container">
             <form name="form" @submit.prevent="handleLogin">
-                <label>Username</label>
+                <label>Nom d'utilisateur :</label>
                 <div class="form-group">
                     <input
                             type="text"
@@ -11,7 +11,7 @@
                             v-model="user.username"
                     />
                 </div>
-                <label>Password</label>
+                <label>Mot de passe :</label>
                 <div class="form-group">
                     <input
                             type="password"

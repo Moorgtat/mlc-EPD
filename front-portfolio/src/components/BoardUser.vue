@@ -1,15 +1,6 @@
 <template>
     <div class="container">
-        <div id="image-test">
-            <div class="row">
-             <div class="col-12 text-center">
-                 <img :src="content" />
-             </div>
-            </div>
-            <div class="text-center">
-            <a href="SPRING Boot_Messaging.pdf" target=_blank>mon cv </a>
-            </div>
-        </div>
+        <h1 class="display-4">UserBoard</h1>
     </div>
 </template>
 

@@ -12,7 +12,7 @@ const actions = {
         commit('setProjekts', response.data);
     },
     async addProjekt({ commit }, projekt){
-        const response = await axios.post('http://localhost:8082/api/acces/newProjekt?Titre=' + projekt.titre + '&Description=' + projekt.description + '&Github=' + projekt.github);
+        const response = await axios.post('http://localhost:8082/api/acces/newProjekt?titre=' + projekt.titre + '&description=' + projekt.description + '&github=' + projekt.github);
         commit('newProjekt', response.data);
     },
     async deleteProjekt({ commit }, id){
@@ -20,7 +20,7 @@ const actions = {
         commit('removeProjekt', id)
     },
     async updtProjekt({ commit }, updprojekt){
-        const response = await axios.put('http://localhost:8082/api/acces/putProjekt?id=' + updprojekt.id + '&Titre=' + updprojekt.titre + '&Description=' + updprojekt.description + '&Github=' + updprojekt.github);
+        const response = await axios.put('http://localhost:8082/api/acces/putProjekt?id=' + updprojekt.id + '&titre=' + updprojekt.titre + '&description=' + updprojekt.description + '&github=' + updprojekt.github);
         commit('changeProjekt', response.data )
     }
 };
@@ -31,7 +31,7 @@ const mutations = {
     changeProjekt: (state, updprojekt) => {
         const index = state.projekts.findIndex(projekt => projekt.id === updprojekt.id);
         if(index !== -1) {
-            state.projekts.splice(2, 1, updprojekt)
+            state.projekts.splice(index, 1, updprojekt)
         }
     }
 };

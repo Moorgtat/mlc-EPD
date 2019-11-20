@@ -13,9 +13,9 @@
         </li>
       </div>
       <div class="navbar-nav ml-auto" v-if="!currentUser">
-        <li class="nav-item">
-          <a class="nav-link" @click="registerModal()">Register</a>
-        </li>
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link" @click="registerModal()">Register</a>-->
+<!--        </li>-->
         <li class="nav-item">
           <a class="nav-link" @click="loginModal()">Login</a>
         </li>
@@ -36,10 +36,10 @@
 </template>
 
 <script>
-    import login from '../src/components/Login'
-    import register from '../src/components/Register'
+  import login from '../src/components/Login'
+  import register from '../src/components/Register'
 
-    export default {
+  export default {
     computed: {
       currentUser() {
         return this.$store.state.auth.user
