@@ -20,7 +20,7 @@
                             v-model="user.password"
                     />
                 </div>
-            <button class="btn btn-secondary btn-block" type="submit" @click="closeModal()">Login</button>
+            <button class="btn btn-dark btn-block" type="submit" @click="closeModal()">Se connecter</button>
             </form>
         </div>
     </div>
@@ -71,6 +71,7 @@
 
 <style scoped>
     label {
+        font-family: "Comic Sans MS";
         display: block;
         margin-top: 10px;
     }
@@ -81,7 +82,8 @@
     }
 
     .card {
-        background-color: #f7f7f7;
+        color: black;
+        background-color: white;
         padding: 20px 25px 30px;
         margin: 0 auto 25px;
         margin-top: 50px;

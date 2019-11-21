@@ -53,7 +53,7 @@
 
                 <div id="skillboard" class="col-12 text-center" v-if="afficheur === 'SkillBoard'">
                     <h1 class="display-4">SkillBoard</h1>
-                    <div class="addSkill">
+                    <div id="addSkill">
                         <form>
                             <input type="text" v-model="skill.titre" placeholder="titre"/>
                             <input type="text" v-model="skill.description" placeholder="description"/>
@@ -88,7 +88,7 @@
 
                 <div id="projektboard" class="col-12 text-center" v-if="afficheur === 'ProjektBoard'">
                     <h1 class="display-4">ProjektBoard</h1>
-                    <div class="addProjekt">
+                    <div id="addProjekt">
                         <form>
                             <input type="text" v-model="projekt.titre" placeholder="titre"/>
                             <input type="text" v-model="projekt.description" placeholder="description"/>
@@ -229,7 +229,9 @@
         margin-top: 5px;
         padding: 3px;
     }
-
+    #les-projekts{
+        margin-bottom: 160px;
+    }
     #les-skills {
         margin-bottom: 160px;
     }

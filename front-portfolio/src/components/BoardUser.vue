@@ -1,6 +1,8 @@
 <template>
     <div class="container">
-        <h1 class="display-4">UserBoard</h1>
+        <h1 class="display-4">Goodies</h1>
+        <p>Développer des jeux en JavaScript comme Arkanoid ou d'autres jeux de plateforme puis
+        donner un accès à Goodies aux users.</p>
     </div>
 </template>
 
