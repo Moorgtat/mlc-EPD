@@ -32,10 +32,6 @@
 </script>
 
 <style>
-    #image-test{
-        margin-top: 10%;
-        margin-bottom: 40px;
-    }
     img{
         height: 360px;
         width: 440px;

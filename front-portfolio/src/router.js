@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './components/Home.vue'
 
-Vue.use(Router)
+Vue.use(Router);
 
 export const router = new Router({
     mode: 'history',
@@ -41,12 +41,12 @@ export const router = new Router({
             component: () => import('./components/BoardUser.vue')
         }
     ]
-})
+});
 
 router.beforeEach((to, from, next) => {
-    const publicPages = ['/home']
-    const authRequired = !publicPages.includes(to.path)
-    const loggedIn = localStorage.getItem('user')
+    const publicPages = ['/home'];
+    const authRequired = !publicPages.includes(to.path);
+    const loggedIn = localStorage.getItem('user');
 
     // try to access a restricted page + not logged in
     if (authRequired && !loggedIn) {
@@ -54,4 +54,4 @@ router.beforeEach((to, from, next) => {
     }
 
     next()
-})
+});

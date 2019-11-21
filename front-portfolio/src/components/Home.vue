@@ -378,9 +378,20 @@
         width: 155px;
     }
     #image-profil:hover{
-        transition: width 1s;
-        width: 175px;
-        opacity: 80%;
+        animation: bounce 2s ease infinite;
+        opacity: 85%;
+    }
+    @keyframes bounce {
+        from{
+            width: 155px;
+        }
+        50%{
+            width: 175px;
+        }
+        to{
+            width: 155px;
+        }
+        
     }
     #texte-presente{
         margin-bottom: 15px;

@@ -28,7 +28,8 @@
                                                   onclick="window.open('https://github.com/Moorgtat')" alt="Mon GitHub"/></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" @click="loginModal()"><img id="iconelogin" src="../public/icone-login.png"/></a>
+                        <a class="nav-link" @click="loginModal()"><img id="iconelogin" src="../public/icone-login.png"
+                        alt="icone de login"/></a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto" v-if="currentUser">
@@ -43,7 +44,7 @@
             <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse"
                     data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false"
                     aria-label="Toggle navigation">
-                <img src="../public/icone-toggler.png">
+                <img src="../public/icone-toggler.png" alt="icone du toggler">
             </button>
         </nav>
         <div>

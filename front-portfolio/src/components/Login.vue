@@ -2,23 +2,25 @@
     <div class="col-md-12">
         <div class="card card-container">
             <form name="form" @submit.prevent="handleLogin">
-                <label>Nom d'utilisateur :</label>
                 <div class="form-group">
+                    <label>Nom d'utilisateur :
                     <input
                             type="text"
                             class="form-control"
                             name="username"
                             v-model="user.username"
                     />
+                    </label>
                 </div>
-                <label>Mot de passe :</label>
                 <div class="form-group">
+                    <label>Mot de passe :
                     <input
                             type="password"
                             class="form-control"
                             name="password"
                             v-model="user.password"
                     />
+                    </label>
                 </div>
             <button class="btn btn-dark btn-block" type="submit" @click="closeModal()">Se connecter</button>
             </form>
@@ -71,7 +73,7 @@
 
 <style scoped>
     label {
-        font-family: "Comic Sans MS";
+        font-family: "Comic Sans MS", serif;
         display: block;
         margin-top: 10px;
     }
@@ -85,8 +87,7 @@
         color: black;
         background-color: white;
         padding: 20px 25px 30px;
-        margin: 0 auto 25px;
-        margin-top: 50px;
+        margin: 50px auto 25px;
         border-radius: 12px;
     }
 
