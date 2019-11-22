@@ -107,15 +107,15 @@
          background-color: transparent;
     }
     #iconelogin:hover{
-        transform: rotate(2deg);
+        transform: rotate(4deg);
     }
     #iconegithub:hover{
-        transform: rotate(3deg);
+        transform: rotate(6deg);
     }
     #iconetwitter:hover{
-        transform: rotate(2deg);
+        transform: rotate(4deg);
     }
     #affportfo:hover{
-        transform: rotate(1deg);
+        transform: rotate(3deg);
     }
 </style>
