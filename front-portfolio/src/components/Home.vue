@@ -14,11 +14,20 @@
               </div>
             </section>
             <section class="text-center" id="skill_section">
-                <h1 class="display-4"> Skills </h1>
+                <div id="bkcontainer">
+                <h1 class="display-4"> Skills Backend </h1>
                 <ul v-for="skill in content.skills" :key="skill">
                     <li><strong>{{skill.titre}}</strong></li>
                     <li>{{skill.description}}</li>
                 </ul>
+               </div>
+                <div id="ftcontainer">
+                    <h1 class="display-4"> Skills Frontend </h1>
+                    <ul v-for="skill in content.skills" :key="skill">
+                        <li><strong>{{skill.titre}}</strong></li>
+                        <li>{{skill.description}}</li>
+                    </ul>
+                </div>
             </section>
             <section class="text-center" id="projekt_section">
                 <h1 class="display-4"> Projekt </h1>
@@ -77,8 +86,8 @@
         scroll-snap-align: center;
     }
     #anim_section{
-        height: 80vh;
-        margin-bottom: 220px;
+        height: 100vh;
+        padding-bottom: 20%;
         background-color: white;
         display: flex;
         flex-direction: row;
@@ -120,7 +129,19 @@
     }
     #skill_section{
         height: 100vh;
-        margin-bottom: 160px;
+        padding-bottom: 20%;
+        background-color: #e0a800;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    #bkcontainer{
+        background-color: darkseagreen;
+    }
+    #ftcontainer{
+        background-color: lightgoldenrodyellow;
     }
     #projekt_section{
         height: 100vh;
