@@ -4,7 +4,9 @@ const state = {
    skills: []
 };
 const getters = {
-    allSkills: (state) => state.skills
+    allSkills: (state) => state.skills,
+    allBackSkills: (state) => state.skills.filter(skill => skill.type = 'backend'),
+    allFrontSkills: (state) => state.skills.filter(skill => skill.type = 'frontend')
 };
 const actions = {
     async fetchSkills ({ commit }) {
@@ -12,7 +14,8 @@ const actions = {
       commit('setSkills', response.data);
     },
     async addSkill({ commit }, skill){
-        const response = await axios.post('http://localhost:8082/api/acces/newSkill?Titre=' + skill.titre + '&Description=' + skill.description);
+        const response = await axios.post('http://localhost:8082/api/acces/newSkill?titre='
+            + skill.titre + '&description=' + skill.description + '&type=' + skill.type + '&logo=' + skill.logo);
         commit('newSkill', response.data);
     },
     async deleteSkill({ commit }, id){
@@ -20,7 +23,8 @@ const actions = {
         commit('removeSkill', id)
     },
     async updtSkill({ commit }, updskill){
-        const response = await axios.put('http://localhost:8082/api/acces/putSkill?id=' + updskill.id + '&Titre=' + updskill.titre + '&Description=' + updskill.description);
+        const response = await axios.put('http://localhost:8082/api/acces/putSkill?id=' + updskill.id + '&titre='
+            + updskill.titre + '&description=' + updskill.description + '&type=' + updskill.type + '&logo=' + updskill.logo);
         commit('changeSkill', response.data )
     }
 };

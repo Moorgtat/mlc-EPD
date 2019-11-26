@@ -1,12 +1,12 @@
 <template>
     <div id="app">
         <nav class="navbar navbar-expand-sm navbar-light">
-            <ul class="navbar-nav mr-auto">
+            <ul id="brand-portfolio" class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a id="affportfo" href="/home" class="navbar-brand mb-auto h1"><strong>Portfolio</strong></a>
                 </li>
             </ul>
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <div class="collapse navbar-collapse" id="navbarToggler">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item" v-if="currentUser">
                         <a href="/user" class="nav-link">Goodies</a>
@@ -42,9 +42,9 @@
                 </ul>
             </div>
             <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse"
-                    data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false"
+                    data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false"
                     aria-label="Toggle navigation">
-                <img src="../public/icone-toggler.png" alt="icone du toggler">
+                <img id="iconetoggler" src="../public/icone-toggler.png" alt="icone du toggler">
             </button>
         </nav>
         <div>
@@ -103,17 +103,32 @@
     #app{
         font-family: "Comic Sans MS", serif;
     }
+    #brand-portfolio{
+        height: 20px;
+    }
     .navbar-expand-sm {
          background-color: transparent;
+    }
+    #iconelogin{
+        height: 20px;
     }
     #iconelogin:hover{
         transform: rotate(4deg);
     }
+    #iconegithub{
+        height: 20px;
+    }
     #iconegithub:hover{
         transform: rotate(6deg);
     }
+    #iconetwitter{
+        height: 20px;
+    }
     #iconetwitter:hover{
         transform: rotate(4deg);
+    }
+    #iconetoggler{
+        height: 20px;
     }
     #affportfo:hover{
         transform: rotate(3deg);

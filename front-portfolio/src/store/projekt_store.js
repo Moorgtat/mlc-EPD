@@ -12,7 +12,8 @@ const actions = {
         commit('setProjekts', response.data);
     },
     async addProjekt({ commit }, projekt){
-        const response = await axios.post('http://localhost:8082/api/acces/newProjekt?titre=' + projekt.titre + '&description=' + projekt.description + '&github=' + projekt.github);
+        const response = await axios.post('http://localhost:8082/api/acces/newProjekt?titre=' + projekt.titre + '&description='
+            + projekt.description + '&github=' + projekt.github + '&slide_1=' + projekt.slide_1 + '&slide_2=' + projekt.slide_2 + '&slide_3=' + projekt.slide_3);
         commit('newProjekt', response.data);
     },
     async deleteProjekt({ commit }, id){
@@ -20,7 +21,9 @@ const actions = {
         commit('removeProjekt', id)
     },
     async updtProjekt({ commit }, updprojekt){
-        const response = await axios.put('http://localhost:8082/api/acces/putProjekt?id=' + updprojekt.id + '&titre=' + updprojekt.titre + '&description=' + updprojekt.description + '&github=' + updprojekt.github);
+        const response = await axios.put('http://localhost:8082/api/acces/putProjekt?id=' + updprojekt.id +
+            '&titre=' + updprojekt.titre + '&description=' + updprojekt.description + '&github=' + updprojekt.github +
+            '&slide_1=' + updprojekt.slide_1 + '&slide_2=' + updprojekt.slide_2 + '&slide_3=' + updprojekt.slide_3);
         commit('changeProjekt', response.data )
     }
 };

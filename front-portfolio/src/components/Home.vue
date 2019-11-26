@@ -130,7 +130,7 @@
     #skill_section{
         height: 100vh;
         padding-bottom: 20%;
-        background-color: #e0a800;
+        background-color: white;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
