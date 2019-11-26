@@ -95,23 +95,31 @@ public class AccesController {
 	}
 
 	@PostMapping("/newSkill")
-    public ResponseEntity<?> postSkill(@RequestParam String Titre,
-                                      @RequestParam String Description){
+    public ResponseEntity<?> postSkill(@RequestParam String titre,
+                                       @RequestParam String description,
+									   @RequestParam String type,
+									   @RequestParam String logo){
 	    Skill newSkill = new Skill();
-	    newSkill.setTitre(Titre);
-	    newSkill.setDescription(Description);
+	    newSkill.setTitre(titre);
+	    newSkill.setDescription(description);
+		newSkill.setType(type);
+		newSkill.setLogo(logo);
 	    skillRepository.save(newSkill);
 	    return new ResponseEntity<>(newSkill, HttpStatus.OK);
     }
 
 	@PutMapping("/putSkill")
     public ResponseEntity<?> updateSkill(@RequestParam int id,
-                                         @RequestParam String Titre,
-                                         @RequestParam String Description) {
+                                         @RequestParam String titre,
+                                         @RequestParam String description,
+										 @RequestParam String type,
+										 @RequestParam String logo) {
         Skill updateSkill = skillRepository.findById(id);
         if (updateSkill != null) {
-           updateSkill.setTitre(Titre);
-            updateSkill.setDescription(Description);
+           updateSkill.setTitre(titre);
+            updateSkill.setDescription(description);
+			updateSkill.setType(type);
+			updateSkill.setLogo(logo);
             skillRepository.save(updateSkill);
         }
         return new ResponseEntity<>(updateSkill, HttpStatus.OK);
@@ -136,11 +144,17 @@ public class AccesController {
     @PostMapping("/newProjekt")
     public ResponseEntity<?> postProjekt(@RequestParam String titre,
                                          @RequestParam String description,
-                                         @RequestParam String github) {
+                                         @RequestParam String github,
+										 @RequestParam String slide_1,
+										 @RequestParam String slide_2,
+										 @RequestParam String slide_3) {
 	    Projekt newProjekt = new Projekt();
 	    newProjekt.setTitre(titre);
 	    newProjekt.setDescription(description);
 	    newProjekt.setGithub(github);
+		newProjekt.setSlide_1(slide_1);
+		newProjekt.setSlide_2(slide_2);
+		newProjekt.setSlide_3(slide_3);
 	    projektRepository.save(newProjekt);
 	    return new ResponseEntity<>(newProjekt, HttpStatus.OK);
     }
@@ -149,12 +163,18 @@ public class AccesController {
     public  ResponseEntity<?> updateProjekt(@RequestParam int id,
                                             @RequestParam String titre,
                                             @RequestParam String description,
-                                            @RequestParam String github) {
+                                            @RequestParam String github,
+											@RequestParam String slide_1,
+											@RequestParam String slide_2,
+											@RequestParam String slide_3) {
 	    Projekt updateProjekt = projektRepository.findById(id);
         if (updateProjekt != null) {
             updateProjekt.setTitre(titre);
             updateProjekt.setDescription(description);
             updateProjekt.setGithub(github);
+			updateProjekt.setSlide_1(slide_1);
+			updateProjekt.setSlide_2(slide_2);
+			updateProjekt.setSlide_3(slide_3);
             projektRepository.save(updateProjekt);
         }
         return new ResponseEntity<>(updateProjekt, HttpStatus.OK);

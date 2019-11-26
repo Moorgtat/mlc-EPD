@@ -16,13 +16,21 @@ public class Skill {
     @NotBlank
     @Size(max = 500)
     private String description;
+    @NotBlank
+    @Size(max = 30)
+    private String type;
+    @NotBlank
+    @Size(max = 30)
+    private String logo;
 
     public Skill() {
     }
 
-    public Skill(@NotBlank @Size(max = 30) String titre, @NotBlank @Size(max = 500) String description) {
+    public Skill(@NotBlank @Size(max = 30) String titre, @NotBlank @Size(max = 500) String description, @NotBlank @Size(max = 30) String type, @NotBlank @Size(max = 30) String logo) {
         this.titre = titre;
         this.description = description;
+        this.type = type;
+        this.logo = logo;
     }
 
     public Integer getId() {
@@ -49,4 +57,19 @@ public class Skill {
         this.description = description;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getLogo() {
+        return logo;
+    }
+
+    public void setLogo(String logo) {
+        this.logo = logo;
+    }
 }
