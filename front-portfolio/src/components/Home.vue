@@ -16,25 +16,31 @@
             <section class="text-center" id="skill_section">
                 <div id="bkcontainer">
                 <h1 class="display-4"> Skills Backend </h1>
-                <ul v-for="skill in content.skills" :key="skill">
-                    <li><strong>{{skill.titre}}</strong></li>
-                    <li>{{skill.description}}</li>
-                </ul>
+                    <div v-for="skill in allBackSkills" :key="skill.id">
+                        <p> {{skill.titre}} </p>
+                        <p> {{skill.type}} </p>
+                        <img id="sklback" :src='skill.logo' alt="logo des skills back"/>
+                    </div>
                </div>
                 <div id="ftcontainer">
                     <h1 class="display-4"> Skills Frontend </h1>
-                    <ul v-for="skill in content.skills" :key="skill">
-                        <li><strong>{{skill.titre}}</strong></li>
-                        <li>{{skill.description}}</li>
-                    </ul>
+                    <div v-for="skill in allFrontSkills" :key="skill.id">
+                        <p> {{skill.titre}} </p>
+                        <p> {{skill.description}} </p>
+                        <p> {{skill.type}} </p>
+                        <img id="sklfront" :src='skill.logo' alt="logo des skills front"/>
+                    </div>
                 </div>
             </section>
             <section class="text-center" id="projekt_section">
                 <h1 class="display-4"> Projekt </h1>
-                <ul v-for="projekt in content.projekts" :key="projekt">
-                    <li><strong>{{projekt.titre}}</strong></li>
-                    <li>{{projekt.description}}</li>
-                </ul>
+                <div v-for="projekt in content.projekts" :key="projekt">
+                    <p><strong>{{projekt.titre}}</strong></p>
+                    <p>{{projekt.description}}</p>
+                    <p>{{projekt.slide_1}}</p>
+                    <p>{{projekt.slide_2}}</p>
+                    <p>{{projekt.slide_3}}</p>
+                </div>
             </section>
             <section class="text-center" id="contact_section">
                 <h1 class="display-4"> Contact </h1>
@@ -46,16 +52,26 @@
 <script>
     import UserService from '../services/user.service';
     import NameFullstack from "@/components/svg/namefullstack";
+    import {mapActions, mapGetters} from 'vuex'
 
     export default {
         name: 'home',
         components: {NameFullstack},
         data() {
             return {
-                content: ""
+                content: "",
+                skills: {}
             }
         },
+        methods: {
+            ...mapActions(['fetchSkills'])
+        },
+        computed: {
+            ...mapGetters(['allBackSkills']),
+            ...mapGetters(['allFrontSkills'])
+        },
         mounted() {
+            this.fetchSkills();
             UserService.getPublicContent().then(
                 response => {
                     this.content = response.data;
@@ -151,5 +167,10 @@
         height: 100vh;
         margin-bottom: 160px;
     }
-
+    #sklback{
+        height: 25px;
+     }
+    #sklfront{
+        height: 25px;
+    }
 </style>

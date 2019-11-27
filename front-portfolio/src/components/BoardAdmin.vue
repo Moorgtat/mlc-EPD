@@ -19,28 +19,34 @@
                     <div v-for="identity in myIdentity" :key="identity.id">
                       <form>
                           <div>
-                          <label>Nom:</label>
+                          <label>Nom:
                           <input v-model="identity.name" :placeholder="identity.name"/>
+                          </label>
                           </div>
                           <div>
-                          <label>Poste:</label>
+                          <label>Poste:
                           <input v-model="identity.poste" :placeholder="identity.poste"/>
+                          </label>
                           </div>
                           <div>
-                          <label>Presentation:</label>
+                          <label>Presentation:
                           <input v-model="identity.presentation" :placeholder="identity.presentation"/>
+                          </label>
                           </div>
                           <div>
-                          <label>Mail:</label>
+                          <label>Mail:
                           <input v-model="identity.mail" :placeholder="identity.mail"/>
+                          </label>
                           </div>
                           <div>
-                          <label>Github:</label>
+                          <label>Github:
                           <input v-model="identity.git" :placeholder="identity.git"/>
+                          </label>
                           </div>
                           <div>
-                          <label>Twitter:</label>
+                          <label>Twitter:
                           <input v-model="identity.twitter" :placeholder="identity.twitter"/>
+                          </label>
                           </div>
                           <div>
                               <b-button type="submit" class="is-dark" @click.prevent="updtIdentity(identity)">
@@ -53,10 +59,16 @@
 
                 <div id="skillboard" class="col-12 text-center" v-if="afficheur === 'SkillBoard'">
                     <h1 class="display-4">SkillBoard</h1>
+
+
+
+
                     <div id="addSkill">
                         <form>
                             <input type="text" v-model="skill.titre" placeholder="titre"/>
                             <input type="text" v-model="skill.description" placeholder="description"/>
+                            <input type="text" v-model="skill.type" placeholder="type"/>
+                            <input type="text" v-model="skill.logo" placeholder="logo"/>
                             <b-button type="submit" class="is-dark" @click.prevent="addSkill(skill)" > AddSkill </b-button>
                         </form>
                     </div>
@@ -65,12 +77,24 @@
                                 <div class="container" id="skill-container">
                                     <form>
                                         <div>
-                                        <label>Titre:</label>
-                                        <input v-model="skill.titre" :placeholder="skill.titre"/>
+                                            <label>Titre:
+                                            <input v-model="skill.titre" :placeholder="skill.titre"/>
+                                            </label>
                                         </div>
                                         <div>
-                                        <label>Description:</label>
-                                        <input v-model="skill.description" :placeholder="skill.description"/>
+                                            <label>Description:
+                                            <input v-model="skill.description" :placeholder="skill.description"/>
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <label>Type:
+                                            <input v-model="skill.type" :placeholder="skill.type"/>
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <label>Logo:
+                                            <input v-model="skill.logo" :placeholder="skill.logo"/>
+                                            </label>
                                         </div>
                                             <div>
                                            <b-button type="submit" class="is-dark" @click.prevent="updtSkill(skill)">
@@ -93,6 +117,9 @@
                             <input type="text" v-model="projekt.titre" placeholder="titre"/>
                             <input type="text" v-model="projekt.description" placeholder="description"/>
                             <input type="text" v-model="projekt.github" placeholder="github"/>
+                            <input type="text" v-model="projekt.slide_1" placeholder="slide 1"/>
+                            <input type="text" v-model="projekt.slide_2" placeholder="slide 2"/>
+                            <input type="text" v-model="projekt.slide_3" placeholder="slide 3"/>
                             <b-button type="submit" class="is-dark" @click.prevent="addProjekt(projekt)" > AddProjekt </b-button>
                         </form>
                     </div>
@@ -101,16 +128,34 @@
                             <div class="container" id="projekt-container">
                                 <form>
                                     <div>
-                                        <label>Titre:</label>
+                                        <label>Titre:
                                         <input v-model="projekt.titre" :placeholder="projekt.titre"/>
+                                        </label>
                                     </div>
                                     <div>
-                                    <label>Description:</label>
+                                    <label>Description:
                                     <input v-model="projekt.description" :placeholder="projekt.description"/>
+                                    </label>
                                     </div>
                                     <div>
-                                        <label>Github:</label>
+                                        <label>Github:
                                         <input v-model="projekt.github" :placeholder="projekt.github"/>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label>Slide 1:
+                                        <input v-model="projekt.slide_1" :placeholder="projekt.slide_1"/>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label>Slide 2:
+                                        <input v-model="projekt.slide_2" :placeholder="projekt.slide_2"/>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <label>Slide 3:
+                                        <input v-model="projekt.slide_3" :placeholder="projekt.slide_3"/>
+                                        </label>
                                     </div>
                                     <div>
                                         <b-button type="submit" class="is-dark" @click.prevent="updtProjekt(projekt)">
@@ -154,14 +199,19 @@
                 skill: {
                     id: '',
                     titre: '',
-                    description: ''
+                    description: '',
+                    type: '',
+                    logo: ''
                 },
                 projekts: [],
                 projekt: {
                   id: '',
                   titre: '',
                   description: '',
-                  github: ''
+                  github: '',
+                  slide_1: '',
+                  slide_2: '',
+                  slide_3: ''
                 },
                 content: ''
             }

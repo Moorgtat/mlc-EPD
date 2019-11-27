@@ -5,8 +5,12 @@ const state = {
 };
 const getters = {
     allSkills: (state) => state.skills,
-    allBackSkills: (state) => state.skills.filter(skill => skill.type = 'backend'),
-    allFrontSkills: (state) => state.skills.filter(skill => skill.type = 'frontend')
+    allBackSkills: (state) => {
+        return state.skills.filter(skill => skill.type === 'backend')
+    },
+    allFrontSkills: (state) => {
+        return state.skills.filter(skill => skill.type === 'frontend')
+    }
 };
 const actions = {
     async fetchSkills ({ commit }) {
