@@ -1,7 +1,7 @@
 <template>
     <div id="app">
-        <nav class="navbar navbar-expand-sm navbar-light">
-            <ul id="brand-portfolio" class="navbar-nav mr-auto">
+        <nav id="genNavbar" class="navbar navbar-expand-sm navbar-light">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a id="affportfo" href="/home" class="navbar-brand mb-auto h1"><strong>Portfolio</strong></a>
                 </li>
@@ -103,7 +103,7 @@
     #app{
         font-family: "Comic Sans MS", serif;
     }
-    #brand-portfolio{
+    #genNavbar{
         height: 20px;
     }
     .navbar-expand-sm {

@@ -7,34 +7,35 @@
               </div>
               <div id="presente">
                   <div id="image-profil-container">
-                  <img id="image-profil" src="avatar.png" alt="Mon image de progil"/>
+                      <img id="image-profil" src="avatar.png" alt="Mon image de progil"/>
                   </div>
-                  <div id="texte-presente">{{this.content.identity.presentation}}</div>
+                  <div v-for="identity in myIdentity" :key="identity.id">
+                      <div id="texte-presente">{{identity.presentation}}</div>
+                  </div>
                   <b-button  onclick="window.open('cv-mlc.pdf')" type="is-warning" outlined><b><strong>GET CV</strong></b></b-button>
               </div>
             </section>
             <section class="text-center" id="skill_section">
-                <div id="bkcontainer">
-                <h1 class="display-4"> Skills Backend </h1>
-                    <div v-for="skill in allBackSkills" :key="skill.id">
-                        <p> {{skill.titre}} </p>
-                        <p> {{skill.type}} </p>
-                        <img id="sklback" :src='skill.logo' alt="logo des skills back"/>
+                <div id="backskills-container">
+                    <h1><strong>Back skills</strong></h1>
+                    <div id="forBSkills" v-for="skill in allBackSkills" :key="skill.id">
+                        <div> {{skill.titre}} </div>
+                        <div> {{skill.description}} </div>
+                        <img id="logo-backskills" :src='skill.logo' alt="logo des skills back"/>
                     </div>
                </div>
-                <div id="ftcontainer">
-                    <h1 class="display-4"> Skills Frontend </h1>
-                    <div v-for="skill in allFrontSkills" :key="skill.id">
+                <div id="frontskills-container">
+                    <h1><strong>Front Skills</strong></h1>
+                    <div id="forFSkills" v-for="skill in allFrontSkills" :key="skill.id">
                         <p> {{skill.titre}} </p>
                         <p> {{skill.description}} </p>
-                        <p> {{skill.type}} </p>
-                        <img id="sklfront" :src='skill.logo' alt="logo des skills front"/>
+                        <img id="logo-frontskills" :src='skill.logo' alt="logo des skills front"/>
                     </div>
                 </div>
             </section>
             <section class="text-center" id="projekt_section">
                 <h1 class="display-4"> Projekt </h1>
-                <div v-for="projekt in content.projekts" :key="projekt">
+                <div v-for="projekt in allProjekts" :key="projekt.id">
                     <p><strong>{{projekt.titre}}</strong></p>
                     <p>{{projekt.description}}</p>
                     <p>{{projekt.slide_1}}</p>
@@ -50,7 +51,6 @@
 </template>
 
 <script>
-    import UserService from '../services/user.service';
     import NameFullstack from "@/components/svg/namefullstack";
     import {mapActions, mapGetters} from 'vuex'
 
@@ -59,38 +59,31 @@
         components: {NameFullstack},
         data() {
             return {
-                content: "",
+                homecontent: "",
                 skills: {}
             }
         },
         methods: {
-            ...mapActions(['fetchSkills'])
+            ...mapActions(['fetchSkills']),
+            ...mapActions(['fetchIdentity']),
+            ...mapActions(['fetchProjekts'])
         },
         computed: {
             ...mapGetters(['allBackSkills']),
-            ...mapGetters(['allFrontSkills'])
+            ...mapGetters(['allFrontSkills']),
+            ...mapGetters(['myIdentity']),
+            ...mapGetters(['allProjekts'])
         },
         mounted() {
             this.fetchSkills();
-            UserService.getPublicContent().then(
-                response => {
-                    this.content = response.data;
-                },
-                error => {
-                    this.content = error.response.data.message
-                }
-            )
+            this.fetchIdentity();
+            this.fetchProjekts()
         }
     }
 </script>
 
 <style scoped>
-    body{
-        display: flex;
-        flex-wrap: wrap;
-    }
-    #home{
-    }
+ /*Gestion du Scroller*/
     .scroller {
         margin: 0;
         height: 100vh;
@@ -99,8 +92,10 @@
         scroll-snap-type: y mandatory;
     }
     .scroller section {
-        scroll-snap-align: center;
+        scroll-snap-align: start;
     }
+
+    /*Section Animation et Présentation*/
     #anim_section{
         height: 100vh;
         padding-bottom: 20%;
@@ -143,34 +138,59 @@
     #texte-presente{
         margin-bottom: 15px;
     }
+
+    /*Section des Compétences*/
     #skill_section{
-        height: 100vh;
-        padding-bottom: 20%;
+        padding-top: 3%;
         background-color: white;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-evenly;
         align-items: center;
+        padding-bottom: 25%;
     }
-    #bkcontainer{
-        background-color: darkseagreen;
+    #backskills-container{
+        width: 430px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
     }
-    #ftcontainer{
-        background-color: lightgoldenrodyellow;
+    #frontskills-container{
+        width: 430px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
     }
+    #forBSkills{
+        margin: 15px;
+    }
+    #forFSkills{
+        margin: 15px;
+    }
+    #logo-backskills{
+        height: 25px;
+    }
+    #logo-frontskills{
+        height: 25px;
+    }
+
+    /*Section des Projets*/
     #projekt_section{
+        padding-top: 3%;
         height: 100vh;
         margin-bottom: 160px;
     }
+
+    /*Section Contact*/
     #contact_section{
+        padding-top: 3%;
         height: 100vh;
         margin-bottom: 160px;
     }
-    #sklback{
-        height: 25px;
-     }
-    #sklfront{
-        height: 25px;
-    }
+
 </style>
