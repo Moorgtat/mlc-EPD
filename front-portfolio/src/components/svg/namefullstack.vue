@@ -1,6 +1,6 @@
 <template>
     <div>
-        <svg id="fullstack" width="391" height="251" viewBox="0 0 391 251" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg id="fullstack" width="421" height="281" viewBox="0 0 391 251" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect width="391" height="251" fill="white"/>
             <path d="M0 0H391V251H0V0Z" fill="white"/>
             <path d="M117.75 69.96L118.038 55.704L116.958 37.416L104.79 64.92L102.774 65.136L88.5904 37.416L87.7984 55.776L88.3024 69.96H81.1744L82.9024 55.704L83.6944 40.584L83.1904 26.616L90.6784 26.328L91.9744 31.08L104.07 56.064L114.942 30L115.734 26.544L123.366 26.256L122.862 40.656L123.654 55.776L125.382 69.96H117.75Z" fill="white"/>

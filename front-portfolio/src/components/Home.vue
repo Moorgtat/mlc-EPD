@@ -13,7 +13,7 @@
                   <div v-for="identity in myIdentity" :key="identity.id">
                       <div id="texte-presentation">{{identity.presentation}}</div>
                   </div>
-                  <b-button  onclick="window.open('cv-mlc.pdf')" type="is-warning" outlined><b><strong>GET CV</strong></b></b-button>
+                  <b-button  onclick="window.open('cv-mlc.pdf')" type="is-dark" outlined><b><strong>GET CV</strong></b></b-button>
               </div>
             </section>
             <section class="text-center" id="skill_section">
@@ -143,8 +143,11 @@
         align-items: center;
     }
     #presentation{
-        width: 400px;
-        height: 340px;
+        padding: 20px;
+        border: 4px dotted goldenrod;
+        border-radius: 30px;
+        width: 440px;
+        height: 380px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -177,7 +180,7 @@
 
     /*Section des Compétences*/
     #skill_section{
-        padding-top: 3%;
+        padding-top: 1%;
         background-color: white;
         display: flex;
         flex-direction: row;
@@ -203,10 +206,16 @@
         align-items: center;
     }
     #logo-backend{
-        margin: 30px;
+        padding: 15px;
+        border: 4px dotted goldenrod;
+        border-radius: 30px;
+        margin: 20px;
     }
     #logo-frontend{
-        margin: 30px;
+        padding: 15px;
+        border: 4px dotted goldenrod;
+        border-radius: 30px;
+        margin: 20px;
     }
     #logo-backskills{
         height: 55px;
@@ -224,14 +233,14 @@
 }
     /*Section des Projets*/
     #projekt_section{
-        padding-top: 3%;
+        padding-top: 1%;
         height: 100vh;
         margin-bottom: 160px;
     }
 
     /*Section Contact*/
     #contact_section{
-        padding-top: 3%;
+        padding-top: 1%;
         height: 100vh;
         margin-bottom: 160px;
     }
