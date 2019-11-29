@@ -64,13 +64,20 @@
             </section>
             <section class="text-center" id="projekt_section">
                 <h1 class="display-4"> Projekt </h1>
-                <div v-for="projekt in allProjekts" :key="projekt.id">
-                    <p><strong>{{projekt.titre}}</strong></p>
-                    <p>{{projekt.description}}</p>
-                    <p>{{projekt.slide_1}}</p>
-                    <p>{{projekt.slide_2}}</p>
-                    <p>{{projekt.slide_3}}</p>
+                <div id="projekt-container">
+                  <div id="in-projekt" v-for="projekt in allProjekts" :key="projekt.id">
+                     <div><p><strong>{{projekt.titre}}</strong></p></div>
+                       <div id="slider">
+                         <figure>
+                            <img src="p1.jpg"/>
+                            <img src="p1.jpg"/>
+                            <img src="p1.jpg"/>
+                          </figure>
+                       </div>
+                     <div> <p>{{projekt.description}}</p></div>
+                  </div>
                 </div>
+
             </section>
             <section class="text-center" id="contact_section">
                 <h1 class="display-4"> Contact </h1>
@@ -112,11 +119,74 @@
 </script>
 
 <style scoped>
+
+    /*Section des Projets*/
+    #projekt_section{
+        margin: 10px;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        padding-bottom: 10%;
+    }
+    @media (max-width: 1716px) {
+        #projekt_section {
+            height: 1350px;
+        }
+    }
+        @media (max-width: 877px) {
+            #projekt_section{
+                height: 2500px;
+                padding-bottom: 250px;
+            }
+    }
+    #projekt-container{
+        margin: 20px;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+
+    #in-projekt{
+        border: 4px dotted goldenrod;
+        border-radius: 60px;
+        padding: 40px;
+        margin: 20px;
+        width: 380px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    @keyframes slidy {
+        0% { left: 0%; }
+        22% { left: -100%; }
+        52% { left: -200%; }
+        82% { left: -100%; }
+        95% { left: 0%; }
+    }
+    div#slider {
+        width:300px;
+        height: 200px;
+        overflow: hidden;
+        }
+    div#slider figure img { width: 300px; height: 200px; float: left; }
+    div#slider figure:hover {
+        position: relative;
+        width: 900px;
+        margin: 0;
+        left: 0;
+        text-align: left;
+        font-size: 0;
+        animation: 14s slidy infinite;
+    }
+
     /*Général*/
     .button {
         margin-bottom: 5px;
     }
-
 
     /*Gestion du Scroller*/
     .scroller {
@@ -130,7 +200,7 @@
         scroll-snap-align: start;
     }
 
-    /*Section Animation et Présentation*/
+    /*Section Animation & Présentation*/
     #anim_section{
         height: 100vh;
         padding-top: 4%;
@@ -168,7 +238,7 @@
             width: 145px;
         }
         50%{
-            width: 165px;
+            width: 162px;
         }
         to{
             width: 145px;
@@ -189,7 +259,7 @@
         align-items: center;
         padding-bottom: 25%;
     }
-    #backskills-container{
+    #backskills-container, #frontskills-container{
         width: 430px;
         display: flex;
         flex-direction: row;
@@ -197,32 +267,17 @@
         justify-content: space-evenly;
         align-items: center;
     }
-    #frontskills-container{
-        width: 430px;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        align-items: center;
-    }
-    #logo-backend{
+    #logo-backend, #logo-frontend{
         padding: 15px;
         border: 4px dotted goldenrod;
         border-radius: 30px;
         margin: 20px;
     }
-    #logo-frontend{
-        padding: 15px;
-        border: 4px dotted goldenrod;
-        border-radius: 30px;
-        margin: 20px;
-    }
-    #logo-backskills{
+
+    #logo-backskills, #logo-frontskills{
         height: 55px;
     }
-    #logo-frontskills{
-        height: 55px;
-    }
+
  @media (max-width: 877px){
      #backskills-container{
          width: 600px;
@@ -231,12 +286,6 @@
          width: 600px;
      }
 }
-    /*Section des Projets*/
-    #projekt_section{
-        padding-top: 1%;
-        height: 100vh;
-        margin-bottom: 160px;
-    }
 
     /*Section Contact*/
     #contact_section{
