@@ -1,6 +1,7 @@
 <template>
     <div id="admin-board">
         <article class="scroller">
+
             <section>
                 <div id="menu" class="text-center">
                     <b-button id="identity_button" @click="afficheur = 'IdentityBoard', getIdentity()"> Mon identité</b-button>
@@ -8,61 +9,53 @@
                     <b-button id="projekts_button" @click="afficheur = 'ProjektBoard', getProjekts()"> Mes Projets</b-button>
                 </div>
             </section>
-            <section>
-                <div id="adminboard_intro" class="col-12 text-center" v-if="afficheur === 'AdminBoard'">
-                    <h1 class="display-4">{{content}}</h1>
-                    <p> Bienvenu dans l'interface pour modifier le Portfolio.</p>
-                </div>
 
-                <div id="identityboard" class="col-12 text-center" v-if="afficheur === 'IdentityBoard'">
-                    <h1 class="display-4">IdentityBoard</h1>
-                    <div v-for="identity in myIdentity" :key="identity.id">
-                      <form>
-                          <div>
-                          <label>Nom:
-                          <input v-model="identity.name" :placeholder="identity.name"/>
-                          </label>
+            <div id="adminboard_intro" class="col-12 text-center" v-if="afficheur === 'AdminBoard'">
+                <h1 class="display-4">{{content}}</h1>
+                <p> Bienvenu dans l'interface pour modifier le Portfolio.</p>
+            </div>
+
+            <section id="admin-container">
+                <div id="identity-container" v-if="afficheur === 'IdentityBoard'">
+                    <div id="identity-titre"><h1 class="is-size-2">IdentityBoard</h1></div>
+                    <div>
+                    <form id="identity-form" v-for="identity in myIdentity" :key="identity.id">
+                          <div class="form-group">
+                          <label>Nom:</label>
+                          <input v-model="identity.name" class="form-control" :placeholder="identity.name"/>
+                          </div>
+                          <div class="form-group">
+                          <label>Poste:</label>
+                          <input v-model="identity.poste" class="form-control" :placeholder="identity.poste"/>
+                          </div>
+                          <div class="form-group">
+                          <label>Presentation:</label>
+                              <textarea class="form-control" rows="6" v-model="identity.presentation"
+                                        :placeholder="identity.presentation"></textarea>
+                          </div>
+                          <div class="form-group">
+                          <label>Mail:</label>
+                          <input v-model="identity.mail" class="form-control" :placeholder="identity.mail"/>
+                          </div>
+                          <div class="form-group">
+                          <label>Github:</label>
+                          <input v-model="identity.git" class="form-control" :placeholder="identity.git"/>
+                          </div>
+                          <div class="form-group">
+                          <label>Twitter:</label>
+                          <input v-model="identity.twitter" class="form-control" :placeholder="identity.twitter"/>
                           </div>
                           <div>
-                          <label>Poste:
-                          <input v-model="identity.poste" :placeholder="identity.poste"/>
-                          </label>
-                          </div>
-                          <div>
-                          <label>Presentation:
-                          <input v-model="identity.presentation" :placeholder="identity.presentation"/>
-                          </label>
-                          </div>
-                          <div>
-                          <label>Mail:
-                          <input v-model="identity.mail" :placeholder="identity.mail"/>
-                          </label>
-                          </div>
-                          <div>
-                          <label>Github:
-                          <input v-model="identity.git" :placeholder="identity.git"/>
-                          </label>
-                          </div>
-                          <div>
-                          <label>Twitter:
-                          <input v-model="identity.twitter" :placeholder="identity.twitter"/>
-                          </label>
-                          </div>
-                          <div>
-                              <b-button type="submit" class="is-dark" @click.prevent="updtIdentity(identity)">
+                              <b-button type="submit" class="is-dark" @click.prevent="updtIdentity(identity)" expanded>
                                   Modifier
                               </b-button>
                           </div>
-                      </form>
+                    </form>
                     </div>
                 </div>
 
-                <div id="skillboard" class="col-12 text-center" v-if="afficheur === 'SkillBoard'">
+                <div id="skill-container" v-if="afficheur === 'SkillBoard'">
                     <h1 class="display-4">SkillBoard</h1>
-
-
-
-
                     <div id="addSkill">
                         <form>
                             <input type="text" v-model="skill.titre" placeholder="titre"/>
@@ -73,44 +66,38 @@
                         </form>
                     </div>
                         <div id="les-skills">
-                            <div v-for="skill in allSkills" :key="skill.id">
-                                <div class="container" id="skill-container">
+                            <div id="skill-forms" v-for="skill in allSkills" :key="skill.id">
                                     <form>
                                         <div>
-                                            <label>Titre:
+                                            <label>Titre:</label>
                                             <input v-model="skill.titre" :placeholder="skill.titre"/>
-                                            </label>
                                         </div>
                                         <div>
-                                            <label>Description:
+                                            <label>Description:</label>
                                             <input v-model="skill.description" :placeholder="skill.description"/>
-                                            </label>
                                         </div>
                                         <div>
-                                            <label>Type:
+                                            <label>Type:</label>
                                             <input v-model="skill.type" :placeholder="skill.type"/>
-                                            </label>
                                         </div>
                                         <div>
-                                            <label>Logo:
+                                            <label>Logo:</label>
                                             <input v-model="skill.logo" :placeholder="skill.logo"/>
-                                            </label>
                                         </div>
                                             <div>
-                                           <b-button type="submit" class="is-dark" @click.prevent="updtSkill(skill)">
+                                                <b-button type="submit" class="is-dark" @click.prevent="updtSkill(skill)">
                                                Modifier
-                                           </b-button>
-                                           <b-button class="is-dark" @click="deleteSkill(skill.id)">
+                                                </b-button>
+                                                <b-button class="is-dark" @click="deleteSkill(skill.id)">
                                                Supprimer
-                                           </b-button>
-                                       </div>
+                                                </b-button>
+                                            </div>
                                     </form>
-                                </div>
                             </div>
                         </div>
                 </div>
 
-                <div id="projektboard" class="col-12 text-center" v-if="afficheur === 'ProjektBoard'">
+                <div id="projektboard" v-if="afficheur === 'ProjektBoard'">
                     <h1 class="display-4">ProjektBoard</h1>
                     <div id="addProjekt">
                         <form>
@@ -256,48 +243,69 @@
 </script>
 
 <style scoped>
-    #adminboard_intro {
-        margin-top: 3%;
-    }
-
-    #identityboard {
-        margin-top: 3%;
-    }
-
-    #skillboard {
-        margin-top: 3%;
-    }
-
-    #projektboard {
-        margin-top: 3%;
-    }
-
-    #skill-container {
-        border-width: 1px;
-        border-style: groove;
-        border-color: black;
-        margin-top: 5px;
-        padding: 3px;
-    }
-    #les-projekts{
-        margin-bottom: 160px;
-    }
-    #les-skills {
-        margin-bottom: 160px;
-    }
-
-    input {
-        width: 30%;
-    }
-
-    form {
-        margin-top: 25px;
-    }
-
+    /*Général*/
     .scroller {
         margin: 0;
         height: 100vh;
         overflow-y: scroll;
         scroll-snap-type: y;
     }
+    #admin-container{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #adminboard_intro {
+        margin-top: 3%;
+    }
+
+    /*Board Identity*/
+    #identity-container{
+        height: 90vh;
+        width: 800px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 120px;
+    }
+    #identity-titre{
+        font-family: "Calibri Light";
+        padding-bottom: 10px;
+    }
+    #identity-form{
+        width: 500px;
+    }
+
+    /*skills*/
+    #skill-container {
+        margin-bottom: 120px;
+    }
+    #les-skills {
+        background-color: white;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    #skill-forms{
+        width: 400px;
+    }
+    @media (max-width: 817px) {
+         #skill-container{
+             height: 1300px;
+    }
+    }
+    /*projekts*/
+    #projektboard {
+        margin-top: 3%;
+    }
+
+    #les-projekts{
+        margin-bottom: 160px;
+    }
+
 </style>

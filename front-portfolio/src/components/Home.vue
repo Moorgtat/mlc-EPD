@@ -13,7 +13,7 @@
                   <div v-for="identity in myIdentity" :key="identity.id">
                       <div id="texte-presentation">{{identity.presentation}}</div>
                   </div>
-                  <b-button  onclick="window.open('cv-mlc.pdf')" type="is-warning" inverted outlined><b><strong>GET CV</strong></b></b-button>
+                  <b-button  onclick="window.open('cv-mlc.pdf')" type="is-dark" outlined><b><strong>GET CV</strong></b></b-button>
               </div>
 
                <div class="hero is-warning" id="infos-portfolio-container"  v-for="identity in myIdentity" :key="identity.id">
@@ -81,10 +81,10 @@
                   <div id="in-projekt" v-for="projekt in allProjekts" :key="projekt.id">
                      <div id="header-projekt">
                          <div>
-                             <button class="button is-warning"  inverted><b><strong>{{projekt.titre}}</strong></b></button>
+                             <h1 class="is-size-4" ><strong>{{projekt.titre}}</strong></h1>
                          </div>
                          <div>
-                             <img src="icone-github.png"/>
+                             <img id="icone-git-projekts" src="icone-github.png"/>
                          </div>
                      </div>
                        <div id="slider">
@@ -106,22 +106,25 @@
                 </div>
                 <br>
                 <div id="contact-explain">
-                    <p> Vous avez un projet, vous cherchez un développeur, contactez-moi et je vous répondrais
-                    au plus vite. A bientôt!</p>
+                    <p>Vous avez un projet et vous cherchez un développeur? Contactez-moi et je vous proposerais une
+                        solution complète et rapide.</p>
                 </div>
                 <br>
                 <form id="form-contact">
                     <div class="form-group">
                         <label> Nom & Prénom </label>
-                            <input type="text" class="form-control"/>
+                            <input type="text" class="form-control" placeholder="Arthur L."/>
                     </div>
                     <div class="form-group">
                         <label> Email </label>
-                        <input type="email" class="form-control"/>
+                        <input type="email" class="form-control" placeholder="arthurL@gmail.com"/>
                     </div>
                     <div class="form-group">
                         <label> Message </label>
-                        <textarea class="form-control" rows="6"></textarea>
+                        <textarea class="form-control" rows="6" placeholder="Salut Mathieu,
+     Je viens d'ouvrir mon salon de thé et j'ai besoin d'un site qui le fait pour que mes clients puissent me trouver!
+     Tu aurais une solution à me proposer?
+     A très vite, Arthur"></textarea>
                     </div>
                     <b-button type="is-dark">Envoyer</b-button>
                 </form>
@@ -318,7 +321,7 @@
         flex-direction: column;
         justify-content: space-evenly;
         align-items: center;
-        padding-bottom: 8%;
+        padding-bottom: 11%;
     }
     #logo-projekt{
         height: 170px;
@@ -347,12 +350,16 @@
         flex-direction: column;
     }
      #header-projekt{
-         margin-bottom: 5px;
+         margin-bottom: 10px;
          display: flex;
          flex-direction: row;
          flex-wrap: wrap;
          justify-content: space-between;
      }
+    #icone-git-projekts{
+        height: 25px;
+        float: right;
+    }
      #body-projekt{
          margin-top : 15px;
      }
@@ -384,9 +391,9 @@
     }
     @media (min-width: 1538px) {
         #projekt_section{
-            margin-bottom: 35px;
+            margin-bottom: 45px;
             height: 995px;
-            padding-bottom: 13%;
+            padding-bottom: 12%;
         }
         #logo-projekt{
             height: 210px;
@@ -397,13 +404,13 @@
     }
     @media (max-width: 1538px) {
         #projekt_section {
-            height: 1420px;
+            height: 1380px;
         }
         #logo-projekt{
             height: 210px;
         }
     }
-    @media (max-width: 796px) {
+    @media (max-width: 777px) {
         #projekt_section{
             height: 2640px;
             padding-bottom: 280px;
