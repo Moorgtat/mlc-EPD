@@ -56,14 +56,28 @@
 
                 <div id="skill-container" v-if="afficheur === 'SkillBoard'">
                     <h1 class="display-4">SkillBoard</h1>
+                    <div>
+                        <br>
+                        <h1 class="is-size-3"> Ajouter un Skill </h1>
+                        <br>
+                    </div>
                     <div id="addSkill">
                         <form>
                             <input type="text" v-model="skill.titre" placeholder="titre"/>
-                            <input type="text" v-model="skill.description" placeholder="description"/>
+                            <div class="form-group">
+                                <label>Description:</label>
+                                <textarea class="form-control" rows="4" v-model="skill.description"
+                                          :placeholder="skill.description"></textarea>
+                            </div>
                             <input type="text" v-model="skill.type" placeholder="type"/>
                             <input type="text" v-model="skill.logo" placeholder="logo"/>
                             <b-button type="submit" class="is-dark" @click.prevent="addSkill(skill)" > AddSkill </b-button>
                         </form>
+                    </div>
+                    <div>
+                        <br>
+                        <h1 class="is-size-3"> Liste des Skills </h1>
+                        <br>
                     </div>
                         <div id="les-skills">
                             <div id="skill-forms" v-for="skill in allSkills" :key="skill.id">
@@ -72,9 +86,10 @@
                                             <label>Titre:</label>
                                             <input v-model="skill.titre" :placeholder="skill.titre"/>
                                         </div>
-                                        <div>
+                                        <div class="form-group">
                                             <label>Description:</label>
-                                            <input v-model="skill.description" :placeholder="skill.description"/>
+                                            <textarea class="form-control" rows="4" v-model="skill.description"
+                                                      :placeholder="skill.description"></textarea>
                                         </div>
                                         <div>
                                             <label>Type:</label>
@@ -98,7 +113,12 @@
                 </div>
 
                 <div id="projektboard" v-if="afficheur === 'ProjektBoard'">
-                    <h1 class="display-4">ProjektBoard</h1>
+                    <h1 id="titre-projektboard" class="display-4">ProjektBoard</h1>
+                    <div>
+                        <br>
+                        <h1 class="is-size-3"> Ajouter un Projekt </h1>
+                        <br>
+                    </div>
                     <div id="addProjekt">
                         <form>
                             <div class="form-group">
@@ -125,6 +145,11 @@
                             <b-button type="submit" class="is-dark" @click.prevent="addProjekt(projekt)"> AddProjekt
                             </b-button>
                         </form>
+                    </div>
+                    <div>
+                        <br>
+                        <h1 class="is-size-3"> Liste des Projekts </h1>
+                        <br>
                     </div>
                     <div id="les-projekts">
                         <div v-for="projekt in allProjekts" :key="projekt.id">
@@ -288,7 +313,13 @@
 
     /*skills*/
     #skill-container {
+        margin-top: 60px;
         margin-bottom: 120px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
     }
     #les-skills {
         background-color: white;
@@ -300,6 +331,7 @@
     }
     #skill-forms{
         width: 400px;
+        margin: 25px;
     }
     @media (max-width: 817px) {
          #skill-container{
@@ -308,11 +340,30 @@
     }
     /*projekts*/
     #projektboard {
-        margin-top: 3%;
+        margin-top: 60px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
     }
-
+    #titre-projektboard{
+    }
+    #addProjekt{
+        width: 400px
+    }
     #les-projekts{
         margin-bottom: 160px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
     }
+    #projekt-container{
+        width: 340px;
+        margin: 40px;
+    }
+
 
 </style>
