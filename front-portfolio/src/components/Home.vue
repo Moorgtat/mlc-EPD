@@ -2,7 +2,6 @@
     <div id="home">
         <article class="scroller">
             <section class="text-center" id="anim_section">
-
               <div id="fullstack-container">
                   <name-fullstack></name-fullstack>
               </div>
@@ -15,13 +14,11 @@
                   </div>
                   <b-button  onclick="window.open('cv-mlc.pdf')" type="is-dark" outlined><b><strong>GET CV</strong></b></b-button>
               </div>
-
-               <div class="hero is-warning" id="infos-portfolio-container"  v-for="identity in myIdentity" :key="identity.id">
+               <div id="infos-portfolio-container" class="hero is-warning" v-for="identity in myIdentity" :key="identity.id">
                   <div id="infos-portfolio"> <p> Mon Github et mon Twitter sont en lien en haut à droite. Pour avoir un aperçu de mes compétences,
                        voir mes derniers projets ou me contacter, vous pouvez scrollez vers le bas! Vous pouvez aussi m'envoyer
                       un mail ici : <strong>{{identity.mail}}</strong></p> </div>
                </div>
-
             </section>
             <section class="text-center" id="skill_section">
                 <div id="backskills-container">
@@ -35,7 +32,7 @@
                             <div class="media-content">
                               <div class="content">
                                   <div> <button class="button is-warning" outlined><b><strong>{{skill.titre}}</strong></b></button></div>
-                                  <div>{{skill.description}}</div>
+                                  <div id="skillsback-description">{{skill.description}}</div>
                               </div>
                             </div>
                             <div class="media-right">
@@ -57,7 +54,7 @@
                             <div class="media-content">
                                 <div class="content">
                                     <div> <button class="button is-warning" outlined><b><strong>{{skill.titre}}</strong></b></button></div>
-                                    <div>{{skill.description}}</div>
+                                    <div id="skillsfront-description">{{skill.description}}</div>
                                 </div>
                             </div>
                             <div class="media-right">
@@ -83,15 +80,12 @@
                          <div>
                              <h1 class="is-size-4" ><strong>{{projekt.titre}}</strong></h1>
                          </div>
-                         <div>
-                             <img id="icone-git-projekts" src="icone-github.png"/>
-                         </div>
                      </div>
                        <div id="slider">
                          <figure>
-                            <img src="p1.jpg"/>
-                            <img src="p1.jpg"/>
-                            <img src="p1.jpg"/>
+                            <img src="p1.jpg" alt="p1 alt"/>
+                            <img src="p1.jpg" alt="p1 alt"/>
+                            <img src="p1.jpg" alt="p1 alt"/>
                           </figure>
                        </div>
                      <div id="body-projekt"> <p>{{projekt.description}}</p></div>
@@ -106,18 +100,18 @@
                 </div>
                 <br>
                 <div id="contact-explain">
-                    <p>Vous avez un projet et vous cherchez un développeur? Contactez-moi et je vous proposerais une
-                        solution complète et rapide.</p>
+                    <p> Vous avez un projet et vous cherchez un développeur? Suivez l'exemple d'Arthur et
+                        contactez-moi. Je vous proposerais une solution web personnalisé et complète.</p>
                 </div>
                 <br>
                 <form id="form-contact">
                     <div class="form-group">
                         <label> Nom & Prénom </label>
-                            <input type="text" class="form-control" placeholder="Arthur L."/>
+                            <input type="text" class="form-control" placeholder="Arthur Parrot"/>
                     </div>
                     <div class="form-group">
                         <label> Email </label>
-                        <input type="email" class="form-control" placeholder="arthurL@gmail.com"/>
+                        <input type="email" class="form-control" placeholder="arthur.parrot@gmail.com"/>
                     </div>
                     <div class="form-group">
                         <label> Message </label>
@@ -244,7 +238,7 @@
     }
     @media (max-width: 877px) {
         #anim_section {
-            padding-bottom: 20%;
+            padding-bottom: 850px;
         }
         #infos-portfolio-container{
             display: none;
@@ -299,7 +293,9 @@
     #logo-backskills, #logo-frontskills{
         height: 55px;
     }
-
+    #skillsfront-description,#skillsback-description{
+        text-align: justify;
+}
  @media (max-width: 877px){
      #backskills-container{
          margin-bottom: 30px;
@@ -342,7 +338,7 @@
     }
     #in-projekt{
         border: 4px dotted goldenrod;
-        border-radius: 60px;
+        border-radius: 40px;
         padding: 40px;
         margin-bottom: 30px;
         width: 380px;
@@ -354,14 +350,11 @@
          display: flex;
          flex-direction: row;
          flex-wrap: wrap;
-         justify-content: space-between;
+         justify-content: center;
      }
-    #icone-git-projekts{
-        height: 25px;
-        float: right;
-    }
      #body-projekt{
          margin-top : 15px;
+         text-align: justify;
      }
     @keyframes slidy {
         0% { left: 0%; }
@@ -392,11 +385,11 @@
     @media (min-width: 1538px) {
         #projekt_section{
             margin-bottom: 45px;
-            height: 995px;
-            padding-bottom: 12%;
+            height: 835px;
+            padding-bottom: 170px;
         }
         #logo-projekt{
-            height: 210px;
+            height: 170px;
         }
         #projekt-container{
             margin-top: 10px;
@@ -404,16 +397,17 @@
     }
     @media (max-width: 1538px) {
         #projekt_section {
-            height: 1380px;
+            height: 1250px;
+            padding-bottom: 160px;
         }
         #logo-projekt{
-            height: 210px;
+            height: 170px;
         }
     }
     @media (max-width: 777px) {
         #projekt_section{
-            height: 2640px;
-            padding-bottom: 280px;
+            height: 2220px;
+            padding-bottom: 250px;
         }
         #infos-portfolio{
             display: none;
@@ -422,7 +416,8 @@
     /*Section Contact*/
     #contact_section{
         padding-top: 1%;
-        height: 100vh;
+        height: 850px;
+        margin-bottom: 140px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -432,6 +427,7 @@
     }
     #contact-explain{
         width: 500px;
+        text-align: justify;
     }
     @media (max-width: 650px){
         #contact-explain{

@@ -101,48 +101,55 @@
                     <h1 class="display-4">ProjektBoard</h1>
                     <div id="addProjekt">
                         <form>
-                            <input type="text" v-model="projekt.titre" placeholder="titre"/>
-                            <input type="text" v-model="projekt.description" placeholder="description"/>
-                            <input type="text" v-model="projekt.github" placeholder="github"/>
-                            <input type="text" v-model="projekt.slide_1" placeholder="slide 1"/>
-                            <input type="text" v-model="projekt.slide_2" placeholder="slide 2"/>
-                            <input type="text" v-model="projekt.slide_3" placeholder="slide 3"/>
-                            <b-button type="submit" class="is-dark" @click.prevent="addProjekt(projekt)" > AddProjekt </b-button>
+                            <div class="form-group">
+                                <label>Titre:</label>
+                                <input type="text" v-model="projekt.titre" placeholder="titre"/>
+                            </div>
+                            <div class="form-group">
+                                <label>Description:</label>
+                                <textarea class="form-control" rows="4" v-model="projekt.description"
+                                          :placeholder="projekt.description"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" v-model="projekt.github" placeholder="github"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" v-model="projekt.slide_1" placeholder="slide 1"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" v-model="projekt.slide_2" placeholder="slide 2"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" v-model="projekt.slide_3" placeholder="slide 3"/>
+                            </div>
+                            <b-button type="submit" class="is-dark" @click.prevent="addProjekt(projekt)"> AddProjekt
+                            </b-button>
                         </form>
                     </div>
                     <div id="les-projekts">
                         <div v-for="projekt in allProjekts" :key="projekt.id">
                             <div class="container" id="projekt-container">
                                 <form>
-                                    <div>
-                                        <label>Titre:
-                                        <input v-model="projekt.titre" :placeholder="projekt.titre"/>
-                                        </label>
+                                    <div class="form-group">
+                                        <label>Titre:</label>
+                                        <input type="text" v-model="projekt.titre" placeholder="titre"/>
                                     </div>
-                                    <div>
-                                    <label>Description:
-                                    <input v-model="projekt.description" :placeholder="projekt.description"/>
-                                    </label>
+                                    <div class="form-group">
+                                        <label>Description:</label>
+                                        <textarea class="form-control" rows="4" v-model="projekt.description"
+                                                  :placeholder="projekt.description"></textarea>
                                     </div>
-                                    <div>
-                                        <label>Github:
-                                        <input v-model="projekt.github" :placeholder="projekt.github"/>
-                                        </label>
+                                    <div class="form-group">
+                                        <input type="text" v-model="projekt.github" placeholder="github"/>
                                     </div>
-                                    <div>
-                                        <label>Slide 1:
-                                        <input v-model="projekt.slide_1" :placeholder="projekt.slide_1"/>
-                                        </label>
+                                    <div class="form-group">
+                                        <input type="text" v-model="projekt.slide_1" placeholder="slide 1"/>
                                     </div>
-                                    <div>
-                                        <label>Slide 2:
-                                        <input v-model="projekt.slide_2" :placeholder="projekt.slide_2"/>
-                                        </label>
+                                    <div class="form-group">
+                                        <input type="text" v-model="projekt.slide_2" placeholder="slide 2"/>
                                     </div>
-                                    <div>
-                                        <label>Slide 3:
-                                        <input v-model="projekt.slide_3" :placeholder="projekt.slide_3"/>
-                                        </label>
+                                    <div class="form-group">
+                                        <input type="text" v-model="projekt.slide_3" placeholder="slide 3"/>
                                     </div>
                                     <div>
                                         <b-button type="submit" class="is-dark" @click.prevent="updtProjekt(projekt)">
