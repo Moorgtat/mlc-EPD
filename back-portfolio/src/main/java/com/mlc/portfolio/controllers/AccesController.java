@@ -1,8 +1,10 @@
 package com.mlc.portfolio.controllers;
 
+import com.mlc.portfolio.models.Contact;
 import com.mlc.portfolio.models.Identity;
 import com.mlc.portfolio.models.Projekt;
 import com.mlc.portfolio.models.Skill;
+import com.mlc.portfolio.repository.ContactRepository;
 import com.mlc.portfolio.repository.IdentityRepository;
 import com.mlc.portfolio.repository.ProjektRepository;
 import com.mlc.portfolio.repository.SkillRepository;
@@ -29,6 +31,9 @@ public class AccesController {
 
 	@Autowired
 	private SkillRepository skillRepository;
+
+	@Autowired
+	private ContactRepository contactRepository;
 
 	@GetMapping("/all")
 	public ResponseEntity<?> allAccess() {
@@ -60,7 +65,7 @@ public class AccesController {
 		return "Admin Board.";
 	}
 
-	//Methode Identité
+	//Méthodes Identité
 	@GetMapping("/getIdentity")
 	public ResponseEntity<?> getIdentity() {
 		List <Identity> identities = identityRepository.findAll();
@@ -87,7 +92,7 @@ public class AccesController {
 		return new ResponseEntity<>(updateIdentity, HttpStatus.OK);
 	}
 
-	//Methodes Compétences
+	//Méthodes Compétences
 	@GetMapping("/getSkills")
 	public ResponseEntity<?> getSkills() {
 		List <Skill> skills = skillRepository.findAll();
@@ -188,4 +193,20 @@ public class AccesController {
         }
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    //Méthodes Contact
+	@GetMapping("/getContacts")
+	public ResponseEntity<?> getContacts(){
+		List <Contact> contacts = contactRepository.findAll();
+		return new ResponseEntity<>(contacts, HttpStatus.OK);
+	}
+
+	@GetMapping("/deleteContact")
+	public ResponseEntity<?> deleteContact(@RequestParam int id) {
+		Contact deleteContact = contactRepository.findById(id);
+		if (deleteContact != null) {
+			contactRepository.delete(deleteContact);
+		}
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
 }
