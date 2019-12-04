@@ -201,6 +201,18 @@ public class AccesController {
 		return new ResponseEntity<>(contacts, HttpStatus.OK);
 	}
 
+    @PostMapping("/newContact")
+    public ResponseEntity<?> postContact(@RequestParam String name,
+                                         @RequestParam String mail,
+                                         @RequestParam String message) {
+        Contact newContact = new Contact();
+        newContact.setName(name);
+        newContact.setMail(mail);
+       newContact.setMessage(message);
+        contactRepository.save(newContact);
+        return new ResponseEntity<>(newContact, HttpStatus.OK);
+    }
+
 	@GetMapping("/deleteContact")
 	public ResponseEntity<?> deleteContact(@RequestParam int id) {
 		Contact deleteContact = contactRepository.findById(id);

@@ -21,6 +21,9 @@ public class Contact {
     @Size(max = 500)
     private String message;
 
+    public Contact() {
+    }
+
     public Contact(@NotBlank @Size(max = 30) String name, @NotBlank @Size(max = 30) String mail, @NotBlank @Size(max = 500) String message) {
         this.name = name;
         this.mail = mail;
