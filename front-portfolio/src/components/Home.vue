@@ -238,7 +238,7 @@
     }
     @media (max-width: 877px) {
         #anim_section {
-            padding-bottom: 850px;
+            padding-bottom: 150px;
         }
         #infos-portfolio-container{
             display: none;

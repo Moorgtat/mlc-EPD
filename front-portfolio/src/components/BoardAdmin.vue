@@ -55,28 +55,35 @@
                 </div>
 
                 <div id="skill-container" v-if="afficheur === 'SkillBoard'">
-                    <h1 class="display-4">SkillBoard</h1>
+                   <div> <h1 id="titre-skillboard" class="is-size-2">SkillBoard</h1> </div>
                     <div>
                         <br>
-                        <h1 class="is-size-3"> Ajouter un Skill </h1>
+                        <p class="is-size-5"> Ajouter un Skill </p>
                         <br>
                     </div>
                     <div id="addSkill">
                         <form>
-                            <input type="text" v-model="skill.titre" placeholder="titre"/>
+                            <div class="form-group">
+                            <label>Titre:</label>
+                            <input class="form-control" type="text" v-model="skill.titre" placeholder="titre"/>
+                            </div>
                             <div class="form-group">
                                 <label>Description:</label>
-                                <textarea class="form-control" rows="4" v-model="skill.description"
-                                          :placeholder="skill.description"></textarea>
+                                <textarea class="form-control" rows="6" v-model="skill.description"
+                                          placeholder="description"></textarea>
                             </div>
-                            <input type="text" v-model="skill.type" placeholder="type"/>
-                            <input type="text" v-model="skill.logo" placeholder="logo"/>
-                            <b-button type="submit" class="is-dark" @click.prevent="addSkill(skill)" > AddSkill </b-button>
+                            <div class="form-group">
+                            <input class="form-control" type="text" v-model="skill.type" placeholder="type"/>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="text" v-model="skill.logo" placeholder="logo"/>
+                            </div>
+                                <b-button type="submit" class="is-dark" @click.prevent="addSkill(skill)" expanded> AddSkill </b-button>
                         </form>
                     </div>
                     <div>
                         <br>
-                        <h1 class="is-size-3"> Liste des Skills </h1>
+                        <p class="is-size-5"> Liste des Skills </p>
                         <br>
                     </div>
                         <div id="les-skills">
@@ -88,7 +95,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Description:</label>
-                                            <textarea class="form-control" rows="4" v-model="skill.description"
+                                            <textarea class="form-control" rows="6" v-model="skill.description"
                                                       :placeholder="skill.description"></textarea>
                                         </div>
                                         <div>
@@ -100,10 +107,10 @@
                                             <input v-model="skill.logo" :placeholder="skill.logo"/>
                                         </div>
                                             <div>
-                                                <b-button type="submit" class="is-dark" @click.prevent="updtSkill(skill)">
+                                                <b-button type="submit" class="is-warning" @click.prevent="updtSkill(skill)" expanded>
                                                Modifier
                                                 </b-button>
-                                                <b-button class="is-dark" @click="deleteSkill(skill.id)">
+                                                <b-button class="is-dark" @click="deleteSkill(skill.id)" expanded>
                                                Supprimer
                                                 </b-button>
                                             </div>
@@ -113,42 +120,42 @@
                 </div>
 
                 <div id="projektboard" v-if="afficheur === 'ProjektBoard'">
-                    <h1 id="titre-projektboard" class="display-4">ProjektBoard</h1>
+                    <h1 id="titre-projektboard" class="is-size-2">ProjektBoard</h1>
                     <div>
                         <br>
-                        <h1 class="is-size-3"> Ajouter un Projekt </h1>
+                        <p class="is-size-5"> Ajouter un Projekt </p>
                         <br>
                     </div>
                     <div id="addProjekt">
                         <form>
                             <div class="form-group">
                                 <label>Titre:</label>
-                                <input type="text" v-model="projekt.titre" placeholder="titre"/>
+                                <input class="form-control" type="text" v-model="projekt.titre" placeholder="titre"/>
                             </div>
                             <div class="form-group">
                                 <label>Description:</label>
                                 <textarea class="form-control" rows="4" v-model="projekt.description"
-                                          :placeholder="projekt.description"></textarea>
+                                          placeholder="description"></textarea>
                             </div>
                             <div class="form-group">
-                                <input type="text" v-model="projekt.github" placeholder="github"/>
+                                <input class="form-control" type="text" v-model="projekt.github" placeholder="github"/>
                             </div>
                             <div class="form-group">
-                                <input type="text" v-model="projekt.slide_1" placeholder="slide 1"/>
+                                <input class="form-control" type="text" v-model="projekt.slide_1" placeholder="slide 1"/>
                             </div>
                             <div class="form-group">
-                                <input type="text" v-model="projekt.slide_2" placeholder="slide 2"/>
+                                <input class="form-control" type="text" v-model="projekt.slide_2" placeholder="slide 2"/>
                             </div>
                             <div class="form-group">
-                                <input type="text" v-model="projekt.slide_3" placeholder="slide 3"/>
+                                <input class="form-control" type="text" v-model="projekt.slide_3" placeholder="slide 3"/>
                             </div>
-                            <b-button type="submit" class="is-dark" @click.prevent="addProjekt(projekt)"> AddProjekt
+                            <b-button type="submit" class="is-dark" @click.prevent="addProjekt(projekt)" expanded> AddProjekt
                             </b-button>
                         </form>
                     </div>
                     <div>
                         <br>
-                        <h1 class="is-size-3"> Liste des Projekts </h1>
+                        <p class="is-size-5"> Liste des Projekts </p>
                         <br>
                     </div>
                     <div id="les-projekts">
@@ -177,10 +184,10 @@
                                         <input type="text" v-model="projekt.slide_3" placeholder="slide 3"/>
                                     </div>
                                     <div>
-                                        <b-button type="submit" class="is-dark" @click.prevent="updtProjekt(projekt)">
+                                        <b-button type="submit" class="is-warning" @click.prevent="updtProjekt(projekt)" expanded>
                                             Modifier
                                         </b-button>
-                                        <b-button class="is-dark" @click="deleteProjekt(projekt.id)">
+                                        <b-button class="is-dark" @click="deleteProjekt(projekt.id)" expanded>
                                             Supprimer
                                         </b-button>
                                     </div>
@@ -304,7 +311,7 @@
         margin-bottom: 120px;
     }
     #identity-titre{
-        font-family: "Calibri Light";
+        font-family: "Calibri Light", serif;
         padding-bottom: 10px;
     }
     #identity-form{
@@ -313,13 +320,20 @@
 
     /*skills*/
     #skill-container {
-        margin-top: 60px;
-        margin-bottom: 120px;
+        margin-top: 37px;
+        margin-bottom: 180px;
         display: flex;
-        flex-direction: column;
         flex-wrap: wrap;
+        flex-direction: column;
         justify-content: space-evenly;
         align-items: center;
+    }
+    #addSkill{
+        border: 4px dotted goldenrod;
+        border-radius: 15px;
+        padding: 35px;
+        width: 400px;
+        margin-bottom: 40px;
     }
     #les-skills {
         background-color: white;
@@ -330,26 +344,31 @@
         align-items: center;
     }
     #skill-forms{
+        border: 4px dotted goldenrod;
+        border-radius: 15px;
+        padding: 35px;
         width: 400px;
         margin: 25px;
     }
-    @media (max-width: 817px) {
-         #skill-container{
-             height: 1300px;
-    }
-    }
+
     /*projekts*/
     #projektboard {
-        margin-top: 60px;
+        margin-top: 37px;
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
         justify-content: space-evenly;
         align-items: center;
     }
-    #titre-projektboard{
+    #titre-projektboard, #titre-skillboard{
+        font-family: "Calibri Light", serif;
+        font-size: 28px;
     }
     #addProjekt{
+        border: 4px dotted goldenrod;
+        border-radius: 15px;
+        padding: 35px;
+        margin-bottom: 40px;
         width: 400px
     }
     #les-projekts{
@@ -361,6 +380,9 @@
         align-items: center;
     }
     #projekt-container{
+        border: 4px dotted goldenrod;
+        border-radius: 15px;
+        padding: 35px;
         width: 340px;
         margin: 40px;
     }
