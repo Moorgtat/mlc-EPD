@@ -110,14 +110,12 @@
                         <b-input v-model="contact.name"
                                 placeholder="Nom & Prénom"
                                  type="text"
-                                 required
                                  minlength="5"
                                  maxlength="30">
                         </b-input>
                     </b-field>
                     <b-field label="Email :">
                         <b-input v-model="contact.mail" placeholder="Email" type="text"
-                                 required
                                  minlength="5"
                                  maxlength="30"
                                  pattern=".+@.+"
@@ -126,7 +124,6 @@
                     <b-field label="Message :">
                         <b-input type="textarea" v-model="contact.message"
                                  rows="6" placeholder="Message"
-                                 required
                                  minlength="10"
                                  maxlength="300">
                         </b-input>
@@ -175,8 +172,8 @@
                 }
                 else {
                     this.addContact(contact);
-                    this.contact.name = ''
-                    this.contact.mail = ''
+                    this.contact.name = '';
+                    this.contact.mail = '';
                     this.contact.message = ''
                 }
             }
@@ -422,7 +419,7 @@
         #projekt_section{
             margin-bottom: 45px;
             height: 835px;
-            padding-bottom: 170px;
+            padding-bottom: 175px;
         }
         #logo-projekt{
             height: 170px;

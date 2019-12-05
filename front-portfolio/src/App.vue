@@ -33,7 +33,7 @@
                                                   onclick="window.open('https://github.com/Moorgtat')" alt="Mon GitHub"/></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" @click="loginModal()"><img id="iconelogin" src="../public/icone-login.png"
+                        <a class="nav-link" @click="loginModal()"><img id="iconelogin" src="../public/icone-login3.png"
                         alt="icone de login"/></a>
                     </li>
                 </ul>
@@ -115,7 +115,7 @@
          background-color: transparent;
     }
     #iconelogin{
-        height: 20px;
+        height: 25px;
     }
     #iconelogin:hover{
         transform: rotate(4deg);
@@ -133,7 +133,7 @@
         transform: rotate(4deg);
     }
     #iconetoggler{
-        height: 25px;
+        height: 20px;
     }
     #affportfo:hover{
         transform: rotate(3deg);

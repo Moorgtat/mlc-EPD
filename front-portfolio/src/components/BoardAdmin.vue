@@ -402,5 +402,21 @@
         margin: 40px;
     }
 
+    /*contacts*/
+   #contact-container {
+       margin-bottom: 160px;
+       display: flex;
+       flex-direction: row;
+       flex-wrap: wrap;
+       justify-content: space-evenly;
+       align-items: center;
+   }
+   #list-contacts{
+       border: 4px dotted goldenrod;
+       border-radius: 15px;
+       padding: 35px;
+       width: 340px;
+       margin: 40px;
+   }
 
 </style>
