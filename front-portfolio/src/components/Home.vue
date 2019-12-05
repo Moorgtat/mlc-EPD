@@ -174,7 +174,10 @@
                     this.addContact(contact);
                     this.contact.name = '';
                     this.contact.mail = '';
-                    this.contact.message = ''
+                    this.contact.message = '';
+                    this.$buefy.toast.open({
+                        message: 'Votre message a bien été envoyé!'
+                    })
                 }
             }
         },
@@ -362,7 +365,7 @@
         justify-content: center;
     }
     #projekt-container{
-        margin: 0px 20px 20px 20px;
+        margin: 0 20px 20px 20px;
         width: 100%;
         display: flex;
         flex-direction: row;
@@ -390,11 +393,11 @@
          text-align: justify;
      }
     @keyframes slidy {
-        0% { left: 0%; }
+        0% { left: 0; }
         22% { left: -100%; }
         52% { left: -200%; }
         82% { left: -100%; }
-        95% { left: 0%; }
+        95% { left: 0; }
     }
     div#slider {
         width:300px;
