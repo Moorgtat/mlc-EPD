@@ -7,6 +7,7 @@
                     <b-button id="identity_button" @click="afficheur = 'IdentityBoard', getIdentity()"> Mon identité</b-button>
                     <b-button id="skills_button" @click="afficheur = 'SkillBoard', getSkills()"> Mes compétences</b-button>
                     <b-button id="projekts_button" @click="afficheur = 'ProjektBoard', getProjekts()"> Mes Projets</b-button>
+                    <b-button id="contact_button" @click="afficheur = 'ContactBoard', getContacts()"> Mes contact</b-button>
                 </div>
             </section>
 
@@ -195,7 +196,14 @@
                             </div>
                         </div>
                     </div>
-
+                </div>
+                <div id="contact-container" v-if="afficheur === 'ContactBoard'">
+                    <div id="list-contacts" v-for="contact in mycontacts" :key="contact.id">
+                        <p>{{contact.name}}</p>
+                        <p>{{contact.mail}}</p>
+                        <p>{{contact.message}}</p>
+                        <b-button class="is-dark" @click="deleteContact(contact.id)" expanded>Supprimer</b-button>
+                    </div>
                 </div>
             </section>
         </article>
@@ -253,6 +261,9 @@
             ...mapActions(['updtProjekt']),
             ...mapActions(['fetchIdentity']),
             ...mapActions(['updtIdentity']),
+            ...mapActions(['fetchContacts']),
+            ...mapActions(['deleteContact']),
+
             getSkills() {
                 this.fetchSkills();
             },
@@ -261,12 +272,16 @@
             },
             getProjekts(){
                 this.fetchProjekts();
+            },
+            getContacts(){
+                this.fetchContacts();
             }
         },
         computed: {
         ...mapGetters(['allSkills']),
         ...mapGetters(['myIdentity']),
-        ...mapGetters(['allProjekts'])
+        ...mapGetters(['allProjekts']),
+        ...mapGetters(['mycontacts'])
     },
         mounted() {
             UserService.getAdminBoard().then(

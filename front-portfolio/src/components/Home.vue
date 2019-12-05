@@ -104,24 +104,36 @@
                         contactez-moi. Je vous proposerais une solution web personnalisé et complète.</p>
                 </div>
                 <br>
+                <div id="chat">
                 <form id="form-contact">
-                    <div class="form-group">
-                        <label> Nom & Prénom </label>
-                            <input type="text" class="form-control" placeholder="Arthur Parrot"/>
-                    </div>
-                    <div class="form-group">
-                        <label> Email </label>
-                        <input type="email" class="form-control" placeholder="arthur.parrot@gmail.com"/>
-                    </div>
-                    <div class="form-group">
-                        <label> Message </label>
-                        <textarea class="form-control" rows="6" placeholder="Salut Mathieu,
-     Je viens d'ouvrir mon salon de thé et j'ai besoin d'un site qui le fait pour que mes clients puissent me trouver!
-     Tu aurais une solution à me proposer?
-     A très vite, Arthur"></textarea>
-                    </div>
-                    <b-button type="is-dark">Envoyer</b-button>
+                    <b-field label="Nom & Prénom :">
+                        <b-input v-model="contact.name"
+                                placeholder="Nom & Prénom"
+                                 type="text"
+                                 required
+                                 minlength="5"
+                                 maxlength="30">
+                        </b-input>
+                    </b-field>
+                    <b-field label="Email :">
+                        <b-input v-model="contact.mail" placeholder="Email" type="text"
+                                 required
+                                 minlength="5"
+                                 maxlength="30"
+                                 pattern=".+@.+"
+                                 validation-message="Il manque une @ bien placée ou 5 caractères minimum."></b-input>
+                    </b-field>
+                    <b-field label="Message :">
+                        <b-input type="textarea" v-model="contact.message"
+                                 rows="6" placeholder="Message"
+                                 required
+                                 minlength="10"
+                                 maxlength="300">
+                        </b-input>
+                    </b-field>
+                   <b-button class="is-warning" @click="subAddContact(contact)" inverted> Envoyer </b-button>
                 </form>
+                </div>
             </section>
         </article>
     </div>
@@ -129,7 +141,8 @@
 
 <script>
     import NameFullstack from "@/components/svg/namefullstack";
-    import {mapActions, mapGetters} from 'vuex'
+    import {mapActions, mapGetters} from 'vuex';
+
 
     export default {
         name: 'home',
@@ -137,13 +150,36 @@
         data() {
             return {
                 homecontent: "",
-                skills: {}
+                skills: {},
+                contact: {
+                    name: '',
+                    mail: '',
+                    message:''
+                }
             }
         },
         methods: {
             ...mapActions(['fetchSkills']),
             ...mapActions(['fetchIdentity']),
-            ...mapActions(['fetchProjekts'])
+            ...mapActions(['fetchProjekts']),
+            ...mapActions(['addContact']),
+            subAddContact(contact) {
+                if(this.contact.name.length < 5 || this.contact.name.length > 30) {
+                    return null
+                }
+                else if(this.contact.mail.length < 5 || this.contact.mail.length > 30 || !this.contact.mail.includes('@')){
+                    return null
+                }
+                else if(this.contact.message.length < 10 || this.contact.message.length > 300){
+                    return null
+                }
+                else {
+                    this.addContact(contact);
+                    this.contact.name = ''
+                    this.contact.mail = ''
+                    this.contact.message = ''
+                }
+            }
         },
         computed: {
             ...mapGetters(['allBackSkills']),
@@ -155,7 +191,7 @@
             this.fetchSkills();
             this.fetchIdentity();
             this.fetchProjekts()
-        }
+        },
     }
 </script>
 
@@ -416,7 +452,7 @@
     /*Section Contact*/
     #contact_section{
         padding-top: 1%;
-        height: 850px;
+        height: 900px;
         margin-bottom: 140px;
         display: flex;
         flex-direction: column;
