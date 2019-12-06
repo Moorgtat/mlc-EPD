@@ -83,9 +83,9 @@
                      </div>
                        <div id="slider">
                          <figure>
-                            <img src="p1.jpg" alt="p1 alt"/>
-                            <img src="p1.jpg" alt="p1 alt"/>
-                            <img src="p1.jpg" alt="p1 alt"/>
+                            <img :src="projekt.slide_1" alt="p1 alt"/>
+                            <img :src="projekt.slide_2" alt="p1 alt"/>
+                            <img :src="projekt.slide_3" alt="p1 alt"/>
                           </figure>
                        </div>
                      <div id="body-projekt"> <p>{{projekt.description}}</p></div>
@@ -119,7 +119,7 @@
                                  minlength="5"
                                  maxlength="30"
                                  pattern=".+@.+"
-                                 validation-message="Il manque une @ bien placée ou 5 caractères minimum."></b-input>
+                                 validation-message="Il manque une @ ou 5 caractères minimum."></b-input>
                     </b-field>
                     <b-field label="Message :">
                         <b-input type="textarea" v-model="contact.message"
@@ -161,13 +161,12 @@
             ...mapActions(['fetchProjekts']),
             ...mapActions(['addContact']),
             subAddContact(contact) {
-                if(this.contact.name.length < 5 || this.contact.name.length > 30) {
-                    return null
-                }
-                else if(this.contact.mail.length < 5 || this.contact.mail.length > 30 || !this.contact.mail.includes('@')){
-                    return null
-                }
-                else if(this.contact.message.length < 10 || this.contact.message.length > 300){
+                if(this.contact.name.length < 5 || this.contact.name.length > 30 ||this.contact.mail.length < 5
+                    || this.contact.mail.length > 30 || !this.contact.mail.includes('@')
+                    || this.contact.message.length < 10 || this.contact.message.length > 300) {
+                    this.$buefy.toast.open({
+                        message: "Vous n'avez pas réussi!"
+                    });
                     return null
                 }
                 else {
