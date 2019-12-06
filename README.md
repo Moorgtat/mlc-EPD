@@ -32,9 +32,12 @@ https://github.com/Moorgtat/mlc-portfolio.git
 L'importer dans IntelliJ Idea. 
 
 Modifier le fichier application.properties à la racine du projet: 
+
 "spring.datasource.url=" => Entrez le lien vers une BDD que vous aurez créée au préalable. 
-"spring.datasource.username=" => Entrez votre username 
-"spring.datasource.password=" => Entrez votre Mot de passe
+
+"spring.datasource.username=" => Entrez votre username.
+
+"spring.datasource.password=" => Entrez votre Mot de passe.
 
 Lancer le projet.
 
