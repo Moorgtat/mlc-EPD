@@ -138,4 +138,14 @@
     #affportfo:hover{
         transform: rotate(3deg);
     }
+    .nav-item{
+        text-align: right;
+
+         }
+    @media (max-width: 575px) {
+        .nav-item{
+            text-align: right;
+            padding-right: 10px;
+        }
+    }
 </style>

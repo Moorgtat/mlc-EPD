@@ -100,8 +100,8 @@
                 </div>
                 <br>
                 <div id="contact-explain">
-                    <p> Vous avez un projet et vous cherchez un développeur? Suivez l'exemple d'Arthur et
-                        contactez-moi. Je vous proposerais une solution web personnalisé et complète.</p>
+                    <p> Vous avez un projet et vous cherchez un développeur? Contactez-moi, je vous
+                        proposerais une solution web personnalisé et complète.</p>
                 </div>
                 <br>
                 <div id="chat">
@@ -461,7 +461,7 @@
         width: 400px;
     }
     #contact-explain{
-        width: 500px;
+        width: 460px;
         text-align: justify;
     }
     @media (max-width: 650px){
