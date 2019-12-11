@@ -13,7 +13,7 @@
 
             <div id="adminboard_intro" class="col-12 text-center" v-if="afficheur === 'AdminBoard'">
                 <h1 class="display-4">{{content}}</h1>
-                <p> Bienvenu dans l'interface pour modifier le Portfolio.</p>
+                <p> Bienvenu dans l'interface pour modifier le Site.</p>
             </div>
 
             <section id="admin-container">
@@ -46,6 +46,28 @@
                           <label>Twitter:</label>
                           <input v-model="identity.twitter" class="form-control" :placeholder="identity.twitter"/>
                           </div>
+                           <div class="form-group">
+                            <label>Titre projet:</label>
+                            <input v-model="identity.titreprojet" class="form-control" :placeholder="identity.titreprojet"/>
+                           </div>
+                           <div class="form-group">
+                            <label>Lien Bouton:</label>
+                            <input v-model="identity.lienbouton" class="form-control" :placeholder="identity.lienbouton"/>
+                           </div>
+                           <div class="form-group">
+                            <label>Lien photo profil:</label>
+                            <input v-model="identity.lienphotoprofil" class="form-control" :placeholder="identity.lienphotoprofil"/>
+                           </div>
+                           <div class="form-group">
+                            <label>Texte applat:</label>
+                               <textarea class="form-control" rows="4" v-model="identity.texteapplat"
+                                         :placeholder="identity.texteapplat"></textarea>
+                           </div>
+                           <div class="form-group">
+                            <label>Texte Form:</label>
+                               <textarea class="form-control" rows="4" v-model="identity.texteform"
+                                         :placeholder="identity.texteform"></textarea>
+                           </div>
                           <div>
                               <b-button type="submit" class="is-dark" @click.prevent="updtIdentity(identity)" expanded>
                                   Modifier
@@ -230,7 +252,12 @@
                     presentation: '',
                     mail: '',
                     git: '',
-                    twitter: ''
+                    twitter: '',
+                    titreprojet: '',
+                    lienbouton: '',
+                    lienphotoprofil: '',
+                    texteapplat: '',
+                    texteform: ''
                 },
                 skills: [],
                 skill: {
@@ -320,7 +347,7 @@
 
     /*Board Identity*/
     #identity-container{
-        height: 90vh;
+        height: 1200px;
         width: 800px;
         display: flex;
         flex-direction: column;

@@ -78,7 +78,12 @@ public class AccesController {
 											 @RequestParam String presentation,
 											 @RequestParam String mail,
 											 @RequestParam String git,
-											 @RequestParam String twitter) {
+											 @RequestParam String twitter,
+											 @RequestParam String titreprojet,
+											 @RequestParam String lienbouton,
+											 @RequestParam String lienphotoprofil,
+											 @RequestParam String texteapplat,
+											 @RequestParam String texteform) {
 		Identity updateIdentity = identityRepository.findFirstById(1);
 		if (updateIdentity != null) {
 			updateIdentity.setName(name);
@@ -87,6 +92,11 @@ public class AccesController {
 			updateIdentity.setMail(mail);
 			updateIdentity.setGit(git);
 			updateIdentity.setTwitter(twitter);
+			updateIdentity.setTitreprojet(titreprojet);
+			updateIdentity.setLienbouton(lienbouton);
+			updateIdentity.setLienphotoprofil(lienphotoprofil);
+			updateIdentity.setTexteapplat(texteapplat);
+			updateIdentity.setTexteform(texteform);
 			identityRepository.save(updateIdentity);
 		}
 		return new ResponseEntity<>(updateIdentity, HttpStatus.OK);

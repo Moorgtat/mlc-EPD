@@ -14,7 +14,10 @@ const actions = {
     async updtIdentity({ commit }, updidentity){
         const response = await axios.put('http://localhost:8082/api/acces/putIdentity?id=' + updidentity.id +
             '&name=' + updidentity.name + '&poste=' + updidentity.poste + '&presentation=' + updidentity.presentation +
-            '&mail=' + updidentity.mail + '&git=' + updidentity.git + '&twitter=' + updidentity.twitter);
+            '&mail=' + updidentity.mail + '&git=' + updidentity.git + '&twitter=' + updidentity.twitter +
+            '&titreprojet=' + updidentity.titreprojet + '&lienbouton=' + updidentity.lienbouton +
+            '&lienphotoprofil=' + updidentity.lienphotoprofil + '&texteapplat=' + updidentity.texteapplat +
+            '&texteform=' + updidentity.texteform);
         commit('changeIdentity', response.data )
     }
 };
