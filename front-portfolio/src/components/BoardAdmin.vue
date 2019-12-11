@@ -99,7 +99,7 @@
                             <input class="form-control" type="text" v-model="skill.type" placeholder="type"/>
                             </div>
                             <div class="form-group">
-                                <input class="form-control" type="text" v-model="skill.logo" placeholder="logo"/>
+                                <input class="form-control" type="text" v-model="skill.logo" placeholder="image"/>
                             </div>
                                 <b-button type="submit" class="is-dark" @click.prevent="addSkill(skill)" expanded> AddSkill </b-button>
                         </form>
@@ -126,7 +126,7 @@
                                             <input v-model="skill.type" :placeholder="skill.type"/>
                                         </div>
                                         <div>
-                                            <label>Logo:</label>
+                                            <label>Image:</label>
                                             <input v-model="skill.logo" :placeholder="skill.logo"/>
                                         </div>
                                             <div>
@@ -161,7 +161,7 @@
                                           placeholder="description"></textarea>
                             </div>
                             <div class="form-group">
-                                <input class="form-control" type="text" v-model="projekt.github" placeholder="github"/>
+                                <input class="form-control" type="text" v-model="projekt.github" placeholder="test"/>
                             </div>
                             <div class="form-group">
                                 <input class="form-control" type="text" v-model="projekt.slide_1" placeholder="slide 1"/>
@@ -195,7 +195,7 @@
                                                   :placeholder="projekt.description"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" v-model="projekt.github" placeholder="github"/>
+                                        <input type="text" v-model="projekt.github" placeholder="test"/>
                                     </div>
                                     <div class="form-group">
                                         <input type="text" v-model="projekt.slide_1" placeholder="slide 1"/>

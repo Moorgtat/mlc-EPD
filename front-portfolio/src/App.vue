@@ -15,9 +15,9 @@
             </ul>
             <div class="collapse navbar-collapse" id="navbarToggler">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item" v-if="currentUser">
-                        <a href="/user" class="nav-link">Goodies</a>
-                    </li>
+<!--                    <li class="nav-item" v-if="currentUser">-->
+<!--                        <a href="/user" class="nav-link">Goodies</a>-->
+<!--                    </li>-->
                     <li class="nav-item" v-if="showAdminBoard">
                         <a href="/admin" class="nav-link">Admin</a>
                     </li>
@@ -144,6 +144,7 @@
         height: 20px;
     }
     #affportfo{
+        font-family: "AR BERKLEY";
         color: black;
     }
     #affportfo:hover{
