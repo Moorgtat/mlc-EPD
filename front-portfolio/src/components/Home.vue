@@ -301,7 +301,7 @@
         #anim_section {
             height: 120vh;
             margin-bottom: 140px;
-            padding-bottom: 200px;
+            padding-bottom: 300px;
         }
         #infos-portfolio-container{
             display: none;
