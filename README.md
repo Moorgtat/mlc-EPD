@@ -1,5 +1,5 @@
-# Projet 12 : mlc-portfolio
-Mon portfolio dynamique basé sur Spring Boot et Vue.js avec Auth JWT et store Vuex. Features CMS, Design modern, FlexBox et animation CSS. //GitHub. https://github.com/Moorgtat/mlc-portfolio.git
+# Projet 12 : Espace dynamique de Partage
+Mon espace dynamique de partage basé sur Spring Boot et Vue.js avec Auth JWT et store Vuex. Features CMS, Design modern, FlexBox et animation CSS. //GitHub. https://github.com/Moorgtat/mlc-portfolio.git
 
 # Features
 Web Responsive
