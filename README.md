@@ -27,7 +27,7 @@ Buefy
 
 # Installation
 Réaliser un gitclone du projet dans votre répertoire de travail à partir de ce lien : 
-https://github.com/Moorgtat/mlc-portfolio.git
+https://github.com/Moorgtat/mlc-EPD.git
 
 L'importer dans IntelliJ Idea. 
 
