@@ -1,5 +1,5 @@
 # Projet 12 : Espace de Partage Dynamique
-Mon espace dynamique de partage basé sur Spring Boot et Vue.js avec Auth JWT et store Vuex. Features CMS, Design modern, FlexBox et animation CSS. //GitHub. https://github.com/Moorgtat/mlc-EPD.git
+Mon espace de partage dynamique basé sur Spring Boot et Vue.js avec Auth JWT et store Vuex. Features CMS, Design modern, FlexBox et animation CSS. //GitHub. https://github.com/Moorgtat/mlc-EPD.git
 
 # Features
 Web Responsive
