@@ -131,7 +131,7 @@
     #affportfo{
         font-family: "AR BERKLEY", sans-serif;
         color: black;
-        font-size: 20px;
+        font-size: 18px;
     }
     #affportfo:hover{
         transform: rotate(3deg);

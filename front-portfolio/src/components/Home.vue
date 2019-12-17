@@ -84,7 +84,7 @@
                   <div id="in-projekt" v-for="projekt in allProjekts" :key="projekt.id">
                      <div id="header-projekt">
                          <div>
-                             <h1 class="is-size-4" ><strong>{{projekt.titre}}</strong></h1>
+                             <h1 id="titre-header"><strong>{{projekt.titre}}</strong></h1>
                          </div>
                      </div>
                        <div id="slider">
@@ -231,7 +231,7 @@
         padding: 30px;
         border: 4px dotted goldenrod;
         border-radius: 30px;
-        width: 440px;
+        width: 400px;
         height: 410px;
         display: flex;
         flex-direction: column;
@@ -284,56 +284,38 @@
     #infos-portfolio{
         width: 80%;
     }
-    @media (max-width: 877px) {
+    @media (max-width: 815px) {
         #anim_section {
-            height: 120vh;
-            margin-bottom: 140px;
-            padding-bottom: 300px;
+         padding-bottom: 100px;
         }
         #infos-portfolio-container{
             display: none;
         }
     }
-    @media (min-width: 1759px) {
-        #infos-portfolio-container{
-            width: 100%;
-        }
-    }
-    @media (min-height: 700px) {
-        #infos-portfolio-container{
-            width: 100%;
-            height: 30%;
-        }
-    }
-    @media (min-height: 800px) {
-        #infos-portfolio-container{
-            font-size: large;
-        }
-    }
-    @media (min-height: 700px) and (min-width: 1250px) {
-        #infos-portfolio-container{
-            font-size: large;
-        }
-    }
+
     /*Section des Compétences*/
     #skill_section{
         padding-top: 1%;
-        padding-bottom: 60px;
+        padding-bottom: 150px;
+        margin-bottom: 150px;
         background-color: white;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-evenly;
-        align-items: center;
+        align-items: flex-start;
+    }
+    .box{
+        width: 420px;
+        height: 200px;
     }
     #backskills-container, #frontskills-container{
-        width: 400px;
+        width: 440px;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-evenly;
         align-items: center;
-        margin-bottom: 180px;
     }
     #logo-backend, #logo-frontend, #logo-contact{
         padding: 15px;
@@ -345,6 +327,7 @@
         height: 55px;
     }
     #skillsfront-description,#skillsback-description{
+        margin-top: 5px;
         text-align: justify;
 }
  @media (max-width: 877px){
@@ -370,6 +353,9 @@
         padding-bottom: 100px;
         margin-bottom: 120px;
     }
+    #titre-header{
+        font-size: 22px;
+    }
     #logo-projekt{
         height: 170px;
         width: 105%;
@@ -380,7 +366,7 @@
         justify-content: center;
     }
     #projekt-container{
-        margin: 0 20px 20px 20px;
+        margin: 20px 20px 20px 20px;
         width: 100%;
         display: flex;
         flex-direction: row;
