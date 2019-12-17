@@ -17,7 +17,7 @@
                   <div v-for="identity in myIdentity" :key="identity.id">
                       <p id="texte-presentation">{{identity.presentation}}</p>
                   </div>
-                  <b-button  onclick="window.open('cv-mlc.pdf')" type="is-dark" outlined><b><strong>Mon CV</strong></b></b-button>
+                  <b-button  onclick="window.open('cv-mlc.pdf')" type="is-dark" outlined><b><strong>Get CV</strong></b></b-button>
               </div>
                <div id="infos-portfolio-container" class="hero is-warning" v-for="identity in myIdentity" :key="identity.id">
                   <div id="infos-portfolio"> <p>{{identity.texteapplat}} <br> <br> <img src="icone-mail.png"/> : <strong>{{identity.mail}}</strong></p></div>
@@ -330,20 +330,7 @@
         margin-top: 5px;
         text-align: justify;
 }
- @media (max-width: 877px){
-     #backskills-container{
-         margin-bottom: 30px;
-     }
-     #frontskills-container{
-         margin-bottom: 120px;
-     }
-     #backskills-container{
-         width: 600px;
-     }
-     #frontskills-container{
-         width: 600px;
-     }
-}
+
     /*Section des Projets*/
     #projekt_section{
         display: flex;
