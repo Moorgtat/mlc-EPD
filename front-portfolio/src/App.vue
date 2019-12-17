@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <nav id="genNavbar" class="navbar navbar-expand-sm navbar-light">
+        <nav id="genNavbar" class="navbar navbar-expand navbar-light">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <div v-for="identity in myIdentity" :key="identity.id">
@@ -13,8 +13,8 @@
                     </div>
                 </li>
             </ul>
-            <div class="collapse navbar-collapse" id="navbarToggler">
-                <ul class="navbar-nav mr-auto">
+<!--            <div class="collapse navbar-collapse" id="navbarToggler">-->
+                <ul class="navbar-nav">
 <!--                    <li class="nav-item" v-if="currentUser">-->
 <!--                        <a href="/user" class="nav-link">Goodies</a>-->
 <!--                    </li>-->
@@ -22,24 +22,24 @@
                         <a href="/admin" class="nav-link">Admin</a>
                     </li>
                 </ul>
-                <ul class="navbar-nav ml-auto" v-if="!currentUser">
+                <ul class="navbar-nav" v-if="!currentUser">
                     <!--        <li class="nav-item">-->
                     <!--          <a class="nav-link" @click="registerModal()">Register</a>-->
                     <!--        </li>-->
-<!--                    <li class="nav-item">-->
-<!--                        <a class="nav-link"><img id="iconetwitter" src="../public/icone-twitter.png"-->
-<!--                                                 onclick="window.open('https://twitter.com/MatLcd')" alt="Mon Twitter"/></a>-->
-<!--                    </li>-->
-<!--                    <li class="nav-item">-->
-<!--                        <a class="nav-link"> <img id="iconegithub" src="../public/icone-github.png"-->
-<!--                                                  onclick="window.open('https://github.com/Moorgtat')" alt="Mon GitHub"/></a>-->
-<!--                    </li>-->
+                    <li class="nav-item">
+                        <a class="nav-link"><img id="iconetwitter" src="../public/icone-twitter.png"
+                                                 onclick="window.open('https://twitter.com/MatLcd')" alt="Mon Twitter"/></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"> <img id="iconegithub" src="../public/icone-github.png"
+                                                  onclick="window.open('https://github.com/Moorgtat')" alt="Mon GitHub"/></a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" @click="loginModal()"><img id="iconelogin" src="../public/icone-login3.png"
                         alt="icone de login"/></a>
                     </li>
                 </ul>
-                <ul class="navbar-nav ml-auto" v-if="currentUser">
+                <ul class="navbar-nav" v-if="currentUser">
                     <li class="nav-item">
                         <a href="/profile" class="nav-link">{{currentUser.username}}</a>
                     </li>
@@ -47,12 +47,12 @@
                         <a href class="nav-link" @click="logOut">Logout</a>
                     </li>
                 </ul>
-            </div>
-            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse"
-                    data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                <img id="iconetoggler" src="../public/icone-toggler.png" alt="icone du toggler">
-            </button>
+<!--            </div>-->
+<!--            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse"-->
+<!--                    data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false"-->
+<!--                    aria-label="Toggle navigation">-->
+<!--                <img id="iconetoggler" src="../public/icone-toggler.png" alt="icone du toggler">-->
+<!--            </button>-->
         </nav>
         <div>
             <router-view/>
@@ -119,9 +119,9 @@
     #genNavbar{
         height: 20px;
     }
-    .navbar-expand-sm {
-         background-color: transparent;
-    }
+    /*.navbar-expand-sm {*/
+    /*     background-color: transparent;*/
+    /*}*/
     #iconelogin{
         height: 25px;
     }
@@ -152,12 +152,11 @@
     }
     .nav-item{
         text-align: right;
-
-         }
-    @media (max-width: 575px) {
-        .nav-item{
-            text-align: right;
-            padding-right: 10px;
-        }
     }
+    /*@media (max-width: 575px) {*/
+    /*    .nav-item{*/
+    /*        text-align: right;*/
+    /*        padding-right: 10px;*/
+    /*    }*/
+    /*}*/
 </style>
