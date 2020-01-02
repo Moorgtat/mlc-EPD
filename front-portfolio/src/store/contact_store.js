@@ -8,16 +8,16 @@ const getters = {
 };
 const actions = {
     async fetchContacts ({ commit }) {
-        const response = await axios.get('http://localhost:8082/api/acces/getContacts');
+        const response = await axios.get('http://94.23.47.22:8082/api/acces/getContacts');
         commit('setContact', response.data);
     },
     async addContact({ commit }, contact){
-        const response = await axios.post('http://localhost:8082/api/acces/newContact?name=' + contact.name + '&mail='
+        const response = await axios.post('http://94.23.47.22:8082/api/acces/newContact?name=' + contact.name + '&mail='
             + contact.mail + '&message=' + contact.message);
         commit('newContact', response.data);
     },
     async deleteContact({ commit }, id){
-        await axios.get('http://localhost:8082/api/acces/deleteContact?id=' + id);
+        await axios.get('http://94.23.47.22:8082/api/acces/deleteContact?id=' + id);
         commit('removeContact', id)
     }
 };
