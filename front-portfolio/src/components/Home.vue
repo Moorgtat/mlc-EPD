@@ -317,17 +317,6 @@
     #infos-portfolio{
         width: 80%;
     }
-    @media (max-width: 815px) {
-        #anim-section{
-            padding-bottom: 100px;
-        }
-        #animsection-container{
-            margin-bottom: 100px;
-        }
-        #infos-portfolio-container{
-            display: none;
-        }
-    }
 
     /*Section des Compétences*/
     #skill_section{
@@ -479,13 +468,23 @@
         width: 400px;
     }
 
-    @media (min-height: 600px){
+    /*RESPONSIVE*/
+    @media (max-width: 815px) {
+        #anim-section{
+            padding-bottom: 100px;
+        }
+        #animsection-container{
+            margin-bottom: 100px;
+        }
+    }
+
+    @media (min-height: 800px){
         #animsection-container{
             height: 100vh;
         }
     }
-    @media (max-width: 550px){
 
+    @media (max-width: 550px){
         /*Gestion du Scroller*/
         .scroller {
             margin: 0;
@@ -520,6 +519,9 @@
             margin-top: 0;
             width: 90%;
             height: auto;
+        }
+        #infos-portfolio-container{
+            height: 240px;
         }
 
         /*SKILLS*/
