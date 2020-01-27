@@ -1,6 +1,8 @@
 <template>
     <div id="home">
         <article class="scroller">
+
+<!--            SECTION ACCUEIL-->
             <section class="text-center" id="anim-section">
                 <div id="animsection-container">
                 <div id="anim-container">
@@ -31,7 +33,6 @@
                             </clipPath>
                         </defs>
                     </svg>
-
                 </div>
                 <div id="presentation">
                     <div id="image-profil-container" v-for="identity in myIdentity" :key="identity.id">
@@ -306,9 +307,9 @@
     }
     #infos-portfolio-container{
         margin-top: 80px;
-        padding-bottom: 20px;
-        height: 200px;
+        padding-bottom: 10px;
         width: 120%;
+        height: 200px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -471,7 +472,9 @@
     /*RESPONSIVE*/
     @media (max-width: 815px) {
         #anim-section{
+            height: fit-content;
             padding-bottom: 100px;
+            margin-bottom: 50px;
         }
         #animsection-container{
             margin-bottom: 100px;
@@ -499,11 +502,11 @@
 
         /*ANIM*/
         #anim-section{
-            padding-bottom: 100px;
+        margin-bottom: 60px;
         }
         #animsection-container{
             padding-top: 0;
-            margin-bottom: 100px;
+            margin-bottom: 0;
         }
         #anim-container{
             margin-top: 0;
@@ -521,7 +524,13 @@
             height: auto;
         }
         #infos-portfolio-container{
-            height: 240px;
+            padding: 30px;
+            width: 120%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         /*SKILLS*/
@@ -557,6 +566,16 @@
         #form-contact{
          margin-top: 30px;
          width: 260px;
+        }
+    }
+
+    @media (max-width: 380px) {
+        #anim-section{
+            margin-bottom: 0;
+        }
+        #animsection-container{
+            margin-bottom: 0;
+            padding-bottom: 0;
         }
     }
 
