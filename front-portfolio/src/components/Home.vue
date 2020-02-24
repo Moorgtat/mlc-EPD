@@ -124,7 +124,7 @@
                 <div id="projekt-container">
                     <div id="in-projekt" v-for="projekt in allProjekts" :key="projekt.id">
                         <div id="header-projekt">
-                            <div id="titre-header"><b><strong>{{projekt.titre}}</strong></b></div>
+                            <a :href="projekt.github"><div id="titre-header" ><b><strong>{{projekt.titre}}</strong></b></div></a>
                         </div>
                         <div id="slider">
                             <figure>
@@ -367,7 +367,7 @@
     }
     #skillsfront-description,#skillsback-description{
         margin-top: 5px;
-        text-align: justify;
+        text-align: center;
 }
 
     /*Section des Projets*/
@@ -420,7 +420,7 @@
      }
      #body-projekt{
          margin-top : 15px;
-         text-align: justify;
+         text-align: center;
      }
     @keyframes slidy {
         0% { left: 0; }
@@ -462,7 +462,7 @@
     #contact-explain{
         margin-top: 20px;
         width: 460px;
-        text-align: justify;
+        text-align: center;
     }
     #form-contact{
         margin-top: 20px;

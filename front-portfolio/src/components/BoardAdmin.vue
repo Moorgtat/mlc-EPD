@@ -161,7 +161,7 @@
                                           placeholder="description"></textarea>
                             </div>
                             <div class="form-group">
-                                <input class="form-control" type="text" v-model="projekt.github" placeholder="test"/>
+                                <input class="form-control" type="text" v-model="projekt.github" placeholder="UrlSite"/>
                             </div>
                             <div class="form-group">
                                 <input class="form-control" type="text" v-model="projekt.slide_1" placeholder="slide 1"/>
