@@ -14,20 +14,20 @@ const getters = {
 };
 const actions = {
     async fetchSkills ({ commit }) {
-      const response = await axios.get('http://94.23.47.22:8082/api/acces/getSkills');
+      const response = await axios.get('https://94.23.47.22:3002/api/acces/getSkills');
       commit('setSkills', response.data);
     },
     async addSkill({ commit }, skill){
-        const response = await axios.post('http://94.23.47.22:8082/api/acces/newSkill?titre='
+        const response = await axios.post('https://94.23.47.22:3002/api/acces/newSkill?titre='
             + skill.titre + '&description=' + skill.description + '&type=' + skill.type + '&logo=' + skill.logo);
         commit('newSkill', response.data);
     },
     async deleteSkill({ commit }, id){
-        await axios.get('http://94.23.47.22:8082/api/acces/deleteSkill?id=' + id);
+        await axios.get('https://94.23.47.22:3002/api/acces/deleteSkill?id=' + id);
         commit('removeSkill', id)
     },
     async updtSkill({ commit }, updskill){
-        const response = await axios.put('http://94.23.47.22:8082/api/acces/putSkill?id=' + updskill.id + '&titre='
+        const response = await axios.put('https://94.23.47.22:3002/api/acces/putSkill?id=' + updskill.id + '&titre='
             + updskill.titre + '&description=' + updskill.description + '&type=' + updskill.type + '&logo=' + updskill.logo);
         commit('changeSkill', response.data )
     }

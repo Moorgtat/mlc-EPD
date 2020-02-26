@@ -1,7 +1,7 @@
 import axios from 'axios'
 import authHeader from './auth-header'
 
-const API_URL = 'http://94.23.47.22:8082/api/acces/';
+const API_URL = 'https://94.23.47.22:3002/api/acces/';
 
 class UserService {
 
